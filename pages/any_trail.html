@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
 <head>
     <title>Any Trail</title>
     <meta charset="utf-8"/>
@@ -11,8 +10,9 @@
     </noscript>
 </head>
 <body class="is-preload">
-<div class="divided">
-    <section class="wrapper style1 align-center">
+
+<div id="wrapper" class="divided">
+    <section class="wrapper style1 align-center divided">
         <div class="inner">
             <!--            空一段距离-->
             <h1>Any Trail</h1>
@@ -34,7 +34,7 @@
             <br><br>
 
             <section class="wrapper style1 align-left">
-                <b><h2>Introduction</h2></b>
+                <h2>Introduction</h2>
                 This plugin can generate a canvas under the character's feet that <b>moves with the character</b>, pass
                 the character's
                 movement information to the canvas, and draw the trajectory as <b>RT</b>.<br>
@@ -42,7 +42,7 @@
                 resources are <b>dynamically allocated</b> with respect to required effect<br>
                 RT can be passed into the terrain and other objects as a <b>mask in the shading stage.</b>
                 <br> <br>
-                <b><h2>Function</h2></b>
+                <h2>Function</h2>
                 Four types of trajectories are supported, but the system can be expanded to support any procedural
                 graphics: <br>
 
@@ -63,18 +63,23 @@
                     </li>
                 </ul>
 
-                <b><h2>Construction</h2></b>
+                <h2>Construction</h2>
                 <div class="image" style="width: 100%">
                     <img src="../assets/works/Any_trail/Flow.png" alt="" style="width: 100%"/>
                 </div>
+                <br> <br>
+                <br> <br>
             </section>
 
 
+            <a href="../assets/works/Any_trail/AnyTrail.exe" download="AnyTrail_Playground.exe">Don't forget! Click here to
+                download
+                playground (*^_^*)</a>
         </div>
-
-
     </section>
 </div>
+</body>
+
 
 <!-- Scripts -->
 <script src="../assets/js/jquery.min.js"></script>
@@ -84,17 +89,5 @@
 <script src="../assets/js/breakpoints.min.js"></script>
 <script src="../assets/js/util.js"></script>
 <script src="../assets/js/main.js"></script>
-
-<script type="text/javascript">
-    function showOrHide() {
-        var div = $("#hideWhenPlayVideo").get(0);
-        if (div.style.display == "") {
-            div.style.display = "none";
-        } else {
-            div.style.display = "";
-        }
-    }
-</script>
-</body>
 
 </html>
