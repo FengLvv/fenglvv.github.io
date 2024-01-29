@@ -11,28 +11,68 @@
     </noscript>
 </head>
 <body class="is-preload">
-<div id="wrapper" class="divided">
-    <section
-            class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-        <div class="content">
+<div class="divided">
+    <section class="wrapper style1 align-center">
+        <div class="inner">
+            <!--            空一段距离-->
             <h1>Any Trail</h1>
-            <p class="major">I am studying interaction design technology at Chalmers University of Technology.
-                <br/> I'm fascinated in digital graphic, and looking forward to working as a Technical Artist. </p>
-            <ul class="actions stacked">
-                <li><a href="#first" class="button big wide smooth-scroll-middle">Check my resume</a></li>
+            <p>Create any shape of trail under player and generate RT<br>
+                <a href="../assets/works/Any_trail/AnyTrail.exe" download="AnyTrail_Playground.exe">Click here to
+                    download
+                    playground (*^_^*)</a></p>
+            <ul class="icons">
+                <li><a href="https://github.com/FengLvv/AnyTrail" class="icon brands style2 fa-github"><span
+                        class="label">Twitter</span></a></li>
+                <li><a href="https://www.youtube.com/watch?v=e34BJWlViKs&feature=youtu.be"
+                       class="icon brands style2 fa-youtube"><span class="label">Facebook</span></a></li>
             </ul>
-        </div>
-        <div class="image">
-<!--            填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
-            <video style="width: 100%; height: auto;" controls="controls" preload="auto" poster="/FengLvv.github.io/assets/works/Any_trail/thumbnail.png">
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <video style="width: 100%; height: auto;" controls="controls" preload="auto"
+                   poster="/FengLvv.github.io/assets/works/Any_trail/thumbnail.png">
                 <source src="../assets/works/Any_trail/AnyTrail4K_Composed.mp4" type="video/mp4">
-<!--                <source src="movie.ogg" type="video/ogg">-->
-<!--                <source src="movie.webm" type="video/webm">-->
-<!--                <object data="movie.mp4" width="320" height="240">-->
-<!--                    <embed src="movie.swf" width="320" height="240">-->
-<!--                </object>-->
             </video>
+            <br><br>
+
+            <section class="wrapper style1 align-left">
+                <b><h2>Introduction</h2></b>
+                This plugin can generate a canvas under the character's feet that <b>moves with the character</b>, pass
+                the character's
+                movement information to the canvas, and draw the trajectory as <b>RT</b>.<br>
+                All pattern drawing is done in the <b>Computer Shader</b>, no additional camera is needed, and the RT
+                resources are <b>dynamically allocated</b> with respect to required effect<br>
+                RT can be passed into the terrain and other objects as a <b>mask in the shading stage.</b>
+                <br> <br>
+                <b><h2>Function</h2></b>
+                Four types of trajectories are supported, but the system can be expanded to support any procedural
+                graphics: <br>
+
+                <ul>
+                    <li> 2D fluid: Jacobi iteration method to solve the Navier-Stokes equations, can be used for
+                        interaction with
+                        the sea
+                    </li>
+                    <li> Surface Ripple: Wave equation, can be used for interaction with players on shallow water
+                        surface
+                    </li>
+                    <li> Trajectory: Continuous drawing of circles, can be used to draw continuous tracks on sand or
+                        snow
+                    </li>
+                    <li> Pattern: Draw any pattern, control random quantity and position. Used for drawing footprints of
+                        any
+                        shape or particle effects affecting the terrain
+                    </li>
+                </ul>
+
+                <b><h2>Construction</h2></b>
+                <div class="image" style="width: 100%">
+                    <img src="../assets/works/Any_trail/Flow.png" alt="" style="width: 100%"/>
+                </div>
+            </section>
+
+
         </div>
+
+
     </section>
 </div>
 
@@ -44,6 +84,17 @@
 <script src="../assets/js/breakpoints.min.js"></script>
 <script src="../assets/js/util.js"></script>
 <script src="../assets/js/main.js"></script>
+
+<script type="text/javascript">
+    function showOrHide() {
+        var div = $("#hideWhenPlayVideo").get(0);
+        if (div.style.display == "") {
+            div.style.display = "none";
+        } else {
+            div.style.display = "";
+        }
+    }
+</script>
 </body>
 
 </html>
