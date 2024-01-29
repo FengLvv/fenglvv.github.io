@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fenglvv's Toon Shader</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="divided">
+    <section class="wrapper style1 align-center divided">
+        <div class="inner">
+            <!--            空一段距离-->
+            <h1>Fenglvv's Toon Shader</h1>
+            <p>Subjective rendering of Japanese style character. Model from <a
+                    href="https://www.aplaybox.com/details/model/i4Xo1E6NKg2v">Girl Frontier2 MMD.</a><br>
+                <a href="../assets/works/3R2_GROZA/GF.exe" download="3R2_Playground.exe">Click here to
+                    download
+                    playground (*^_^*)<br>[Press left mouse button to rotate, scroll the scroller to scale and move and
+                    press to move ]</a></p>
+            <ul class="icons">
+                <li><a href="https://github.com/FengLvv/Fenglvv-Toon-Shader" class="icon brands style2 fa-github"><span
+                        class="label">Twitter</span></a></li>
+                <li><a href="https://youtu.be/4ByG8bubHI0"
+                       class="icon brands style2 fa-youtube"><span class="label">Facebook</span></a></li>
+            </ul>
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <video style="width: 100%; height: auto;" controls="controls" preload="auto"
+                   poster="/FengLvv.github.io/assets/works/3R2_GROZA/Video_pic.jpg">
+                <source src="../assets/works/3R2_GROZA/Groza_Compressed.mp4" type="video/mp4">
+            </video>
+            <br><br>
+
+            <section class="wrapper style1 align-left">
+                <h2>Introduction</h2>
+                This shader showcases part of the process for rendering Japanese cartoon characters.<br> The shader is
+                based on Unity URP and utilizes URP RenderFeature to achieve certain effects. I modified some parts of
+                the model, mainly the normals, to improve the shading effect.
+                <br> <br>
+
+            </section>
+        </div>
+
+
+        <section
+                class="spotlight style4 orient-left content-align-left image-position-center onscroll-content-fade-up onload-image-fade-in"
+                id="first">
+            <div class="content">
+                <h2>Feature in shader</h2>
+                <ul>
+                    <li>NPR + GGX highlights + Disney Diffusion</li>
+                    <li>Normal extrusion outline, Monospaced inline</li>
+                    <li>Screen space dynamic fringe</li>
+                    <li>eyebrows piercing through hair</li>
+                    <li>SDF facial shadow</li>
+                    <li>Kajiya anisotropic highlights</li>
+                </ul>
+            </div>
+            <div class="image" style="width: 100%">
+                <img src="../assets/works/3R2_GROZA/Intro1.png" alt=""/>
+            </div>
+        </section>
+
+
+        <div class="inner">
+            <section class="wrapper style1 align-left">
+                <h2>Other details</h2>
+                <ul>
+                    <li><b>Normal remapping</b> for optimizing hair lighting<br><br>
+                        <span class="image fit">
+                            <img src="../assets/works/3R2_GROZA/normal_remap.png" alt=""/><br><br>
+                        </span>
+                    </li>
+                    <li>Use <b>FlowMap</b> to reconstruct Tangent for drawing Kajiya highlights.<br><br>
+                        <span class="image fit">
+                            <img src="../assets/works/3R2_GROZA/Kajiya.png" alt=""/><br><br>
+                        </span>
+                    </li>
+
+                </ul>
+
+            </section>
+
+            <a href="../assets/works/3R2_GROZA/GF.exe" download="3R2_Playground.exe">Click here to
+                download
+                playground (*^_^*)<br>[Press left mouse button to rotate, scroll the scroller to scale and move and
+                press to move ]</a>
+        </div>
+    </section>
+</div>
+
+
+</body>
+
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>
