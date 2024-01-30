@@ -1,96 +1,187 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/html">
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
-	<title>Fenglvv's Portfolio</title>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-	<link rel="stylesheet" href="assets/css/main.css"/>
-	<noscript>
-		<link rel="stylesheet" href="assets/css/noscript.css"/>
-	</noscript>
+    <title>Fenglvv's Portfolio</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css"/>
+    </noscript>
 </head>
-<body class="is-preload">
+<style>
+    .hidden-content {
+        max-height: 1px; /* 初始状态高度为0 */
+        opacity: 0; /* 初始状态设置为透明 */
+        overflow: hidden; /* 隐藏溢出内容 */
+        transition: opacity 0.5s ease-in-out, max-height 1s ease-in-out; /* 添加过渡效果 */
+    }
 
+    .show-content {
+        /*不限制*/
+        max-height: 5000px; /* 显示内容时设置为最大高度 */
+        opacity: 1; /* 显示内容时设置为不透明 */
+        overflow: hidden; /* 隐藏溢出内容 */
+        transition: opacity 0.5s ease-in-out, max-height 1s ease-in-out; /* 添加过渡效果 */
+    }
+</style>
+
+<body class="is-preload">
 <!-- Wrapper -->
 <div id="wrapper" class="divided">
 
-	<!-- One -->
-	<section
-			class="banner style3 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-		<div class="content">
-			<h1>Weilong's portfolio</h1>
-			<p class="major">I am studying <b>interaction design technology</b> at Chalmers University of Technology.
-				<br/> I'm fascinated in digital graphic, and looking forward to working as a Technical Artist. </p>
-			<ul class="actions stacked">
-				<li><a href="#first" class="button big wide smooth-scroll-middle">Check my resume</a></li>
+    <!-- One -->
+    <section id="banner"
+             class="banner style3 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+        <div class="content">
+            <h1>Weilong's portfolio</h1>
+            <p class="major">I am studying <b>interaction design technology</b> at Chalmers University of Technology.
+                <br/> I'm fascinated in digital graphic, and looking forward to working as a Technical Artist. </p>
 
-			</ul>
-		</div>
-		<div class="image">
-			<img src="assets/works/Resume/head.png" alt=""/>
-		</div>
-	</section>
+            <button id="showResume">Check my resume</button>
+        </div>
+        <div class="image">
+            <img src="assets/works/Resume/head.png" alt=""/>
+        </div>
+    </section>
 
-	<!-- Two -->
-	<section class="spotlight style5 orient-right content-align-left image-position-center onscroll-content-fade-up "
-			 id="first">
-		<div class="content">
-<!--			同一行-->
-			<header>
-				<h2>AnyTrail</h2>
-				<p>	-Unity Tool Coding</p>
-			</header>
-			<ul>
-				<li>Create any shape of trail under player and generate RT</li>
-				<li>Support fluid / trail / wave / patterns</li>
-				<li>Trail will be drawn on a canvas moving with player(refreshing in realtime), so you can draw more
-					detail within screen and erase trails outside screen
-				</li>
-			</ul>
-			<ul class="actions stacked">
-				<li><a href="pages/any_trail.html" target="_blank" class="button">Learn More</a></li>
-			</ul>
-		</div>
-		<div class="image">
-			<img src="assets/works/Any_trail/thumbnail.png"  alt=""/>
-		</div>
-	</section>
 
-	<!-- Three -->
-	<section class="spotlight style5 orient-left content-align-left image-position-center onscroll-content-fade-up">
-		<div class="content">
-			<header>
-				<h2>Fenglvv's Toon Shader</h2>
-				<p>	-Japanese style character Shading</p>
-			</header>
-			<ul>
-				<li>Covering most of the techniques for rendering Japanese cartoons characters, based on Unity URP</li>
-				<li>The model and texture are from "Girls Frontier".</li>
-				<li> I modified partial assets (through blender) to reach better effect</li>
-			</ul>
-			<ul class="actions stacked">
-				<li><a href="pages/3r2.html" target="_blank" class="button">Learn More</a></li>
-			</ul>
-		</div>
-		<div class="image">
-			<img src="assets/works/3R2_GROZA/thumbnail.jpg" alt=""/>
-		</div>
-	</section>
+    <div id="resume" class="hidden-content">
+        <section class="wrapper style2 align-center divided">
+            <div class="inner">
+                <div class="index align-left">
+                    <section>
+                        <header>
+                            <h3>Education</h3>
+                        </header>
+                        <div  class="content">
+                            <div style="display: flex; justify-content: space-between;">
+                                <div style="text-align: left;"><b> Chalmers University of Technology, Gothenburg, Sweden</b>      <br>Master, Interaction Design and Technologies</div>
+                                <div style="text-align: right;">2023-2025(estimated)</div>
+                            </div>
+                        <br>
+                            <div style="display: flex; justify-content: space-between;">
+                                <div style="text-align: left;"><b> South China University of Technology, GuangZhou, China&nbsp&nbsp (ARWU Ranking
+                                    101-150)</b>     <br>Bachelor, Information and Interaction Design, GPA 3.83/4, Ranking 5/28</div>
+                                <div style="text-align: right;">2019-2023</div>
+                            </div>
+                        </div>
+                    </section>
 
-	<section class="wrapper style1 align-center">
-		<div class="inner">
-			<h2>More subjects are still in organizing</h2>
-		</div>
-	</section>
+                    <section>
+                        <header>
+                            <h3>Experience</h3>
+                        </header>
+                        <div class="content">
+                            <p><b>NetEase Game, China, Interaction Design Internship</b>&nbsp&nbsp&nbsp 2022.7-2022.10
+                                <br>GuangZhou, China
+                            <ul>
+                                <li>
+                                    Cooperate with the game interaction designer, responsible for the game interface
+                                    editing work, and interface with the game development engineers, follow up the
+                                    development progress of each module
+                                </li>
+                                <li>
+                                    According to the requirement document, independently complete the design of the game
+                                    UGC module and push the progress of the module implementation
+                                </li>
+                                <li>
+                                    Integrate and maintain game assets, develop user interface.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section>
+                        <header>
+                            <h3>Award</h3>
+                        </header>
+                        <div class="content">
+                            Chalmers Avancez scholarship
+                            <br>
+                            <sup>&nbsp&nbsp&nbsp&nbsp-Chalmers University of Technology</sup>
+                            <br>
+                            Excellent Graduation Design
+                            <br>
+                            <sup>&nbsp&nbsp&nbsp&nbsp-South China University of Technology</sup>
+                            <br>
+                            2022·UXD Award<br>
+                            GCROSS CREATIVE AWARD<br>2022·European Product Design Award
+                        </div>
+                        <div class="content">
+                            Cover tuition fees           <br>
+                            <br>Second Prize <br> <br>
+                            “Technology and Innovation Track”· 2nd prize<br>Silver star(National finals) Bronze<br>Winner
+                        </div>
+                        <div>2023.09            <br><br>2023.06<br><br>2023.05<br>2022.10<br>2022.10</div>
 
-	<!-- Footer -->
-	<footer class="wrapper style1 align-center">
-		<div class="inner">
-			<p>I am currently in search of a summer internship and would be grateful for the opportunity to join your team. Please feel free to reach out to me at <a href="mailto:tinyfenglvv@163.com">tinyfenglvv@163.com (click to open outlook) </a>if you are interested. Thank you for considering me.
-			</p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </div>
 
-		</div>
-	</footer>
+    <!-- Two -->
+    <section class="spotlight style5 orient-right content-align-left image-position-center onscroll-content-fade-up "
+             id="first">
+        <div class="content">
+            <!--			同一行-->
+            <header>
+                <h2>AnyTrail</h2>
+                <p> -Unity Tool Coding</p>
+            </header>
+            <ul>
+                <li>Create any shape of trail under player and generate RT</li>
+                <li>Support fluid / trail / wave / patterns</li>
+                <li>Trail will be drawn on a canvas moving with player(refreshing in realtime), so you can draw more
+                    detail within screen and erase trails outside screen
+                </li>
+            </ul>
+            <ul class="actions stacked">
+                <li><a href="pages/any_trail.html" target="_blank" class="button">Learn More</a></li>
+            </ul>
+        </div>
+        <div class="image">
+            <img src="assets/works/Any_trail/thumbnail.png" alt=""/>
+        </div>
+    </section>
+
+    <!-- Three -->
+    <section class="spotlight style5 orient-left content-align-left image-position-center onscroll-content-fade-up">
+        <div class="content">
+            <header>
+                <h2>Fenglvv's Toon Shader</h2>
+                <p> -Japanese style character Shading</p>
+            </header>
+            <ul>
+                <li>Covering most of the techniques for rendering Japanese cartoons characters, based on Unity URP</li>
+                <li>The model and texture are from "Girls Frontier".</li>
+                <li> I modified partial assets (through blender) to reach better effect</li>
+            </ul>
+            <ul class="actions stacked">
+                <li><a href="pages/3r2.html" target="_blank" class="button">Learn More</a></li>
+            </ul>
+        </div>
+        <div class="image">
+            <img src="assets/works/3R2_GROZA/thumbnail.jpg" alt=""/>
+        </div>
+    </section>
+
+    <section class="wrapper style1 align-center">
+        <div class="inner">
+            <h2>More subjects are still in organizing</h2>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="wrapper style1 align-center">
+        <div class="inner">
+            <p>I am currently in search of a summer internship and would be grateful for the opportunity to join your
+                team. Please feel free to reach out to me at <a href="mailto:tinyfenglvv@163.com">tinyfenglvv@163.com
+                    (click to open outlook) </a>if you are interested. Thank you for considering me.
+            </p>
+
+        </div>
+    </footer>
 
 </div>
 
@@ -102,6 +193,45 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
+<script>
+    document.getElementById('showResume').addEventListener('click', function () {
 
+        var content = document.getElementById('resume');
+        if (content.classList.contains('hidden-content')) {
+            content.classList.remove('hidden-content');
+            content.classList.add('show-content');
+
+            //    smooth scroll to resume
+            var element = document.getElementById("resume");
+
+            var targetElement = element;
+            var targetPosition = targetElement.getBoundingClientRect().top;
+            var startPosition = window.scrollY;
+            var startTime = null;
+            var duration = 1000;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                var timeElapsed = currentTime - startTime;
+                var run = ease(timeElapsed, startPosition, targetPosition, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+
+            function ease(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+
+            requestAnimationFrame(animation);
+
+        } else {
+            content.classList.remove('show-content');
+            content.classList.add('hidden-content');
+        }
+    });
+</script>
 </body>
 </html>
