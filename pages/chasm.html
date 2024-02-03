@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Legend of Light</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="divided">
+    <section class="wrapper style1 align-center divided">
+        <div class="inner">
+            <!--            空一段距离-->
+            <h1>Chasm</h1>
+            <p>My first game demo</p>
+
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <iframe id="myVideo" src="https://www.youtube.com/embed/T9I20Id2SPU?si=jMCs9XRckAhnOZav"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            <br><br>
+
+            <section id="container" class="wrapper style1 align-left onscroll-content-fade-up onload-image-fade-in">
+                <h2>Introduction</h2>
+                Demo of my first attempt at creating a game with Unity
+                <br> <br>
+                The little cute car is literally terrible to drive, and gameplay is also not fun at all. However, it's still a memorable experience.
+                <br> <br>
+                Additionally, the game is primarily made up of various plugins and art assets.
+                <br>
+                EVP5: Vehicle construction<br>
+                GeNa: Scene layout<br>
+                Pegasus: Camera track construction<br>
+                FreeFlyCamera: Flying camera<br>
+                EasyRoads3D, 3D Haven: Road construction
+                <br><br>
+                Thanks to this plugin, I can step in the game development world with a very low threshold.
+
+            </section>
+
+        </div>
+    </section>
+</div>
+</body>
+
+
+<script>
+    // 获取要获取高度的元素
+    var element = document.getElementById('myVideo');
+    var container = document.getElementById('container');
+
+    // 获取元素的高度
+    var width = container.offsetWidth;
+
+    //打印高度
+    console.log(width);
+
+    element.width =width+ "px" ;
+    element.height = width * 0.5625 + "px";
+</script>
+<script>
+    var video = document.getElementById("myVideo");
+    video.volume = 0.20; // 设置初始音量为50%
+</script>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>
