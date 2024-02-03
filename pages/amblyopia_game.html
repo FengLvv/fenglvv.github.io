@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Any Trail</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="divided">
+    <section class="wrapper style1 align-center divided">
+        <div class="inner">
+            <!--            空一段距离-->
+            <h1>Legend of Light</h1>
+            <p>Research on the design of electronic games for the treatment of Amblyopia</p>
+
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <video id="myVideo" style="width: 100%; height: auto;" controls="controls" preload="auto" volume="0.5">
+                <source src="../assets/works/Amblyopia/amblyopia_demo.mp4" type="video/mp4">
+            </video>
+            <br><br>
+
+            <section class="wrapper style1 align-left onscroll-content-fade-up onload-image-fade-in">
+                <h2>Introduction</h2>
+                This is an attempt at a serious game.
+                <br><br>
+                I summarized relevant research on electronic game therapy for
+                amblyopia and summarized the interactive modes of treatment. Finally, I combined these interactive
+                modes with role-playing games to enhance the fun of treatment.
+                <br><br>
+                Legend of Light is based on the <a href="https://pubmed.ncbi.nlm.nih.gov/25060850/"> I-BiT </a> theory,
+                using red-blue glasses as a foundation, adjusting game
+                materials to present visual stimuli separately for amblyopic eyes. The test system is based on <a
+                    href="https://ieeexplore.ieee.org/document/5713843">Long To's</a>
+                research, introducing a measurement mode for the degree of amblyopia, and based on theories such as fine
+                visual training, incorporating special
+                design elements into the game screen. Finally, the game uses a rogue-like mode to provide an independent
+                gaming experience for each treatment session while limiting the duration of each game.
+                <br><br>
+                The game materials are sourced from the Unity store and AI tools. The project is not for commercial
+                use. <br>
+                <br>
+
+            </section>
+
+        </div>
+    </section>
+</div>
+</body>
+
+<script>
+    var video = document.getElementById("myVideo");
+    video.volume = 0.20; // 设置初始音量为50%
+</script>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>
