@@ -15,9 +15,10 @@
     <section class="wrapper style1 align-center ">
         <div class="inner">
             <h1>Toon cloud</h1>
+            <p>Cloud with different render algorithm: Mesh, POM, Volume<br></p>
             <ul class="icons">
-<!--                TODO: ADD GITHUB-->
-                <li><a href="https://github.com/FengLvv/Natural-Scene/tree/Sea"
+                <!--                TODO: ADD GITHUB-->
+                <li><a href="https://github.com/FengLvv/Natural-Scene/tree/Cloud"
                        class="icon brands style2 fa-github"><span
                         class="label">Github</span></a></li>
             </ul>
@@ -27,44 +28,31 @@
                 <source src="../assets/works/Cloud/cloud.mp4" type="video/mp4">
             </video>
 
+            <br><br>
+            <div class="inner align-left">
+                <h2>Mesh cloud</h2>
+                Render a cloud with a mesh, and use a shader to simulate the cloud's movement and shape change.
+                <!--img-->
+                <img src="../assets/works/Cloud/Mesh_cloud.png" width="100%" height="100%" alt=""/>
+                <br><br>
+                <h2>POM cloud</h2>
+                Use the <a href="https://en.wikipedia.org/wiki/Parallax_occlusion_mapping">Parallax Occlusion
+                Mapping</a> to sample noise texture.
+                <br><br>
+                <h2>Volume cloud</h2>
+                Use the <a
+                    href="https://advances.realtimerendering.com/s2015/The%20Real-time%20Volumetric%20Cloudscapes%20of%20Horizon%20-%20Zero%20Dawn%20-%20ARTR.pdf">Ray
+                Marching(GDC)</a> to sample multiple FBM noise(Perlin/Worley) texture.<br>
+                TODO: FBM parameter still need to be adjusted, and the performance is not good.
+                <br><br>
+                <h2>Ref</h2>
+                <p>Environment asset: <a href="https://assetstore.unity.com/packages/3d/environments/pure-nature-188246">
+                    Pure Nature (From unity asset store)</a><br>
+                    Water shader: <a href="../pages/toon_water.html"> Toon water</a></p>
+            </div>
         </div>
-    </section>
-    <section
-            class="spotlight style4 orient-left content-align-left image-position-center onscroll-content-fade-up onload-image-fade-in"
-    >
-        <div class="content">
-            <h2>Feature in shader</h2>
-            <ul>
-                <li>Planar reflection</li>
-                <li>Pseudo caustics</li>
-                <li>Sin vertices wave</li>
-                <li>Normal wrap</li>
-                <li>Toon foam</li>
-                <li>GGX specular</li>
-                <li>Distance based tessellation(as background)</li>
-                <li>Shallow water interaction</li>
-            </ul>
-        </div>
-        <div class="image" style="width: 100%">
-            <img src="../assets/works/Water/Sea_Tes.png" alt=""/>
-        </div>
-    </section>
-
-    <section
-            class="wrapper style1 align-center divided"    >
-        <div class="inner">
-            <a href="../assets/works/Water/Build.exe" download="ToonWater_Playground.exe">Don't forget! Click here to
-                download
-                playground (*^_^*)<br>[WSAD to move]</a>
-        </div>
-    </section>
 
 
-    <section class="wrapper style1 align-left ">
-        <div class="inner">
-            <h2>Ref</h2>
-            <p>Environment asset:  <a href="https://assetstore.unity.com/packages/3d/environments/pure-nature-188246"> Pure Nature (From unity asset store)</a></p>
-        </div>
     </section>
 </div>
 
