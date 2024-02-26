@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fenglvv's Toon Shader</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="divided">
+    <section class="wrapper style1 align-center divided">
+        <div class="inner">
+            <!--            空一段距离-->
+            <h1>Fenglvv's Toon Shader</h1>
+            <p>主观渲染的日式风格角色。模型来自 <a
+                    href="https://www.aplaybox.com/details/model/i4Xo1E6NKg2v">少女前线2 MMD.</a><br>
+                <a href="../assets/works/3R2_GROZA/GF.exe" download="3R2_Playground.exe">点击下载游乐场 (*^_^*)<br>[鼠标左键旋转，中键按压上下移动，中键滚动缩放 ]</a></p>
+            <ul class="icons">
+                <li><a href="https://github.com/FengLvv/Fenglvv-Toon-Shader" class="icon brands style2 fa-github"><span
+                        class="label">Twitter</span></a></li>
+            </ul>
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <video style="width: 100%; height: auto;" controls="controls" preload="auto"
+                   poster="/FengLvv.github.io/assets/works/3R2_GROZA/Video_pic.jpg">
+                <source src="../assets/works/3R2_GROZA/Groza_Compressed_cn.mp4" type="video/mp4">
+            </video>
+            <br><br>
+
+            <section class="wrapper style1 align-left">
+                <h2>介绍</h2>
+                这个着色器展示了渲染日式卡通角色的部分过程。<br>
+                该着色器基于Unity URP，并利用URP RenderFeature 来实现特定效果。我修改了模型的一些部分，主要是法线，以改善着色。
+                <br> <br>
+            </section>
+        </div>
+
+
+        <section
+                class="spotlight style4 orient-left content-align-left image-position-center onscroll-content-fade-up onload-image-fade-in"
+                id="first">
+            <div class="content">
+                <h2>Shader 特性</h2>
+                <ul>
+                    <li>NPR + GGX 高光 + 迪士尼漫射</li>
+                    <li>法线外扩描边, 屏幕空间等距内描边</li>
+                    <li>屏幕空间偏移的动态刘海</li>
+                    <li>眉毛穿过头发（模板）</li>
+                    <li>SDF 面部阴影</li>
+                    <li>Kajiya 各向异性头发高光</li>
+                </ul>
+            </div>
+            <div class="image" style="width: 100%">
+                <img src="../assets/works/3R2_GROZA/Intro1_cn.png" alt=""/>
+            </div>
+        </section>
+
+
+
+
+        <div class="inner">
+            <section class="wrapper style1 align-left">
+                <h2>其他细节</h2>
+                <ul>
+                    <li><b>法线重映射</b>来优化高光形状<br><br>
+                        <span class="image fit">
+                            <img src="../assets/works/3R2_GROZA/normal_remap.png" alt=""/><br><br>
+                        </span>
+                    </li>
+                    <li>使用 <b>FlowMap</b> 重构切线方形来绘制 Kajiya 头发高光.<br><br>
+                        <span class="image fit">
+                            <img src="../assets/works/3R2_GROZA/Kajiya.png" alt=""/><br><br>
+                        </span>
+                    </li>
+
+                </ul>
+
+            </section>
+
+            <br> <br>
+            <br> <br>
+            <a href="../assets/works/3R2_GROZA/GF.exe" download="3R2_Playground.exe">不要忘记下载游乐场 (*^_^*)<br>[鼠标左键旋转，中键按压上下移动，中键滚动缩放 ]</a>
+                </a>
+        </div>
+    </section>
+</div>
+
+
+</body>
+
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>

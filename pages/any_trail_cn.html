@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Any Trail</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="divided">
+    <section class="wrapper style1 align-center divided">
+        <div class="inner">
+            <!--            空一段距离-->
+            <h1>Any Trail</h1>
+            <p>在玩家脚下创建任何轨迹并生成RT<br>
+                <a href="../assets/works/Any_trail/AnyTrail.exe" download="AnyTrail_Playground.exe">点击下载游乐场
+                    (*^_^*)<br>[WSAD移动, 空格画轨迹, 1234 开关不同画笔]</a></p>
+            <ul class="icons">
+                <li><a href="https://github.com/FengLvv/AnyTrail" class="icon brands style2 fa-github"><span
+                        class="label">Github</span></a></li>
+            </ul>
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <video style="width: 100%; height: auto;" controls="controls" preload="auto">
+                <source src="../assets/works/Any_trail/AnyTrail4K_Composed.mp4" type="video/mp4">
+            </video>
+            <br><br>
+
+            <section class="wrapper style1 align-left onscroll-content-fade-up onload-image-fade-in">
+                <h2>介绍</h2>
+                该插件可以在角色脚下生成一块<b>随角色移动的画布</b>，将角色的运动信息传递给画布，并将轨迹绘制为RT。<br>
+                所有图案绘制都在compute shader中完成，无需额外的相机。RT资源根据所需效果分配。<br>RT可以在<b>物体着色阶段</b>作为遮罩传递给地形和其他对象。<br><br>
+
+                <br><br>
+                <h2>功能</h2>
+                当前支持四类轨迹，但系统可以扩展以支持任何程序图形：<br>
+
+                <ul>
+                    <li> <b>2D 流体:</b>使用 Jacobi iteration 解 NS 方程, 可以用来绘制可交互液体（数值法求解二维NS方程也在ComputeShader中完成）
+                    </li>
+                    <li> <b>表面波纹:</b> 近似模拟波动方程, 可以用来模拟玩家与浅水表面的交互
+                    </li>
+                    <li> <b>轨迹:</b> 持续的绘制圆圈, 可以用来绘制连续的轨迹（用在沙地、雪地等情景）
+                    </li>
+                    <li><b> 图案:</b> 绘制任何形状的图案，可控制随机数量和位置以形成粒子效果。用来绘制任何形状的足迹用于影响地面着色
+                    </li>
+                </ul>
+                <br><br>
+                <h2>插件结构</h2>
+                <div class="image" style="width: 100%">
+                    <img src="../assets/works/Any_trail/Flow_cn.png" alt="" style="width: 100%"/>
+                </div>
+
+                <br><br>
+
+                <h2>使用案例</h2>
+                <ol>
+                    <li> <a href="../pages/toon_water_cn.html" target="_blank">卡通水: &nbsp 浅水交互
+                        </a>
+                        <a class="image" href="../pages/toon_water.html" target="_blank">
+                            <img alt="" src="../assets/works/Water/Thumbnail.png" width="50%" height="50%"/>
+                        </a>
+                    </li>
+                </ol>
+
+                <br> <br>
+                <br> <br>
+            </section>
+
+
+            <a href="../assets/works/Any_trail/AnyTrail.exe" download="AnyTrail_Playground.exe">不要忘了下载游乐场 (*^_^*)<br>[WSAD移动, 空格画轨迹, 1234 开关不同画笔]</a>
+        </div>
+    </section>
+</div>
+</body>
+
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chasm</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="divided">
+    <section class="wrapper style1 align-center divided">
+        <div class="inner">
+            <!--            空一段距离-->
+            <h1>Chasm</h1>
+            <p>我的第一个游戏制作尝试</p>
+
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <iframe id="myVideo" src="https://www.youtube.com/embed/T9I20Id2SPU?si=jMCs9XRckAhnOZav"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            <br><br>
+
+            <section id="container" class="wrapper style1 align-left onscroll-content-fade-up onload-image-fade-in">
+                <h2>介绍</h2>
+                我第一次尝试使用 Unity 创建游戏
+
+                <br> <br>
+                这辆可爱的小车开起来实在是太糟糕了，而且游戏玩法也一点也不有趣。然而，这仍然是一次难忘的经历。
+                <br> <br>
+                此外，该游戏主要由各种插件和艺术资产组成。
+                <br>
+                EVP5: 车辆建造<br>
+                GeNa: 场景布局<br>
+                Pegasus: 摄像机轨道构建<br>
+                FreeFlyCamera: 飞行摄像机<br>
+                EasyRoads3D, 3D Haven: 道路建设
+                <br><br>
+                得益于这个插件，我可以以很低的门槛踏入游戏开发的世界。
+
+            </section>
+
+        </div>
+    </section>
+</div>
+</body>
+
+
+<script>
+    // 获取要获取高度的元素
+    var element = document.getElementById('myVideo');
+    var container = document.getElementById('container');
+
+    // 获取元素的高度
+    var width = container.offsetWidth;
+
+    //打印高度
+    console.log(width);
+
+    element.width =width+ "px" ;
+    element.height = width * 0.5625 + "px";
+</script>
+<script>
+    var video = document.getElementById("myVideo");
+    video.volume = 0.20; // 设置初始音量为50%
+</script>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>

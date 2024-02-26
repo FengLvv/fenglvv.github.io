@@ -1,0 +1,303 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Fenglvv's Portfolio</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css"/>
+    </noscript>
+</head>
+<style>
+    .hidden-content {
+        max-height: 1px; /* 初始状态高度为0 */
+        opacity: 0; /* 初始状态设置为透明 */
+        overflow: hidden; /* 隐藏溢出内容 */
+        transition: opacity 0.5s ease-in-out, max-height 1s ease-in-out; /* 添加过渡效果 */
+    }
+
+    .show-content {
+        /*不限制*/
+        max-height: 5000px; /* 显示内容时设置为最大高度 */
+        opacity: 1; /* 显示内容时设置为不透明 */
+        overflow: hidden; /* 隐藏溢出内容 */
+        transition: opacity 0.5s ease-in-out, max-height 1s ease-in-out; /* 添加过渡效果 */
+    }
+</style>
+
+<body class="is-preload">
+<!-- Wrapper -->
+<div id="wrapper" class="divided">
+
+    <!-- One -->
+    <section id="banner"
+             class="banner style3 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+        <div class="content">
+            <header>
+                <h1>卢伟龙作品集</h1>
+                <p><a class="icon style3 fa-envelope" href="mailto:luweilong00@gmail.com "><span
+                        class="label">Email</span></a>
+                    &nbsp&nbsp<a href="mailto:luweilong00@gmail.com ">luweilong00@gmail.com </a></p>
+            </header>
+            <p class="major">我正在查尔姆斯理工大小学习 <a
+                    href="https://www.chalmers.se/en/education/find-masters-programme/interaction-design-and-technologies-msc/"><b>交互设计技术</b></a>.
+                <br/> 我非常热爱图形开发，我希望成为技术美术工程师 </p>
+
+            <button id="showResume">查看我的简历</button>
+        </div>
+        <div class="image">
+            <img src="assets/works/Resume/head.png" alt=""/>
+        </div>
+    </section>
+
+    <div id="resume" class="hidden-content">
+        <section class="wrapper style2 align-center divided">
+            <div class="inner">
+                <div class="index align-left">
+                    <section>
+                        <header>
+                            <h3>教育</h3>
+                        </header>
+                        <div class="content">
+                            <div style="display: flex; justify-content: space-between;">
+                                <div style="text-align: left;"><b> 查尔姆斯理工大学, 哥德堡,
+                                    瑞典</b> <br>硕士, 交互设计技术
+                                </div>
+                                <div style="text-align: right;">2023-2025(预计)</div>
+                            </div>
+                            <br>
+                            <div style="display: flex; justify-content: space-between;">
+                                <div style="text-align: left;"><b> 华南理工大学, 广州,
+                                    中国&nbsp&nbsp </b> <br>本科, 信息与交互设计, GPA 3.83/4, 排名
+                                    5/28
+                                </div>
+                                <div style="text-align: right;">2019-2023</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <header>
+                            <h3>经历</h3>
+                        </header>
+                        <div class="content">
+                            <p><b>广州网易互娱, 中国, 游戏交互设计实习</b>&nbsp&nbsp&nbsp 2022.7-2022.10
+                                <br>广州， 中国
+                            <ul>
+                                <li>与游戏交互设计师合作，负责游戏界面编辑工作</li>
+                                <li>与游戏开发工程师进行界面对接，跟进每个模块的开发进度</li>
+                                <li>根据需求文档，完成游戏UGC模块的设计并推动模块实施进度</li>
+                                <li> 整合和维护游戏资产，开发用户界面</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section>
+                        <header>
+                            <h3>获奖</h3>
+                        </header>
+                        <div class="content">
+                            Chalmers Avancez scholarship
+                            <br>
+                            <sup>&nbsp&nbsp&nbsp&nbsp-查尔姆斯理工大学</sup>
+                            <br>
+                            优秀毕业设计
+                            <br>
+                            <sup>&nbsp&nbsp&nbsp&nbsp-华南理工大学</sup>
+                            <br>
+                            2022·UXD Award<br>
+                            GCROSS CREATIVE AWARD<br>2022·欧洲产品设计奖（EPDA）
+                        </div>
+                        <div class="content">
+                            覆盖硕士期间学费 <br>
+                            <br>二等奖 <br> <br>
+                            “技术创新赛道”· 二等奖<br>Silver star(National finals) Bronze<br>Winner
+                        </div>
+                        <div>2023.09 <br><br>2023.06<br><br>2023.05<br>2022.10<br>2022.10</div>
+
+                    </section>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Any trail -->
+    <section class="spotlight style5 orient-right content-align-left image-position-center onscroll-content-fade-up "
+             id="first">
+        <div class="content">
+            <!--			同一行-->
+            <header>
+                <h2>AnyTrail</h2>
+                <p> -Unity 工具开发</p>
+            </header>
+            <ul>
+                <li>在角色脚下创建任何形状的RTT</li>
+                <li>目前支持流体/轨迹/波纹/图案（可任意拓展）</li>
+                <li>轨迹将在随玩家移动的画布上绘制（实时刷新），因此您可以仅在屏幕内绘制细节，并擦除屏幕外的轨迹
+                </li>
+            </ul>
+            <ul class="actions stacked">
+                <li><a href="pages/any_trail.html" target="_blank" class="button">查看详情</a></li>
+            </ul>
+        </div>
+        <div class="image">
+            <img src="assets/works/Any_trail/thumbnail.png" alt=""/>
+        </div>
+    </section>
+
+    <!-- 3R2 -->
+    <section class="spotlight style5 orient-left content-align-left image-position-center onscroll-content-fade-up">
+        <div class="content">
+            <header>
+                <h2>Fenglvv's Toon Shader</h2>
+                <p> -日式卡通角色着色</p>
+            </header>
+            <ul>
+                <li>覆盖日式卡通角色渲染的大部分技术</li>
+                <li>基于 Unity URP</li>
+                <li>我修改了部分资产（通过Blender），以达到更好的渲染效果</li>
+            </ul>
+            <ul class="actions stacked">
+                <li><a href="pages/3r2.html" target="_blank" class="button">查看详情</a></li>
+            </ul>
+        </div>
+        <div class="image">
+            <img src="assets/works/3R2_GROZA/thumbnail.jpg" alt=""/>
+        </div>
+    </section>
+
+    <!-- Shader practice -->
+    <section class="wrapper style1 align-center divided">
+
+        <div class="inner">
+            <h2>Shader 练习</h2>
+            <p>这里列出的练习的shader，大部分仅关注单一效果的实现</p>
+
+            <div class="items style1 big onscroll-fade-in">
+                <section>
+                    <div class="inner">
+                        <a class="image" href="pages/toon_water.html" target="_blank">
+                            <img alt="" src="assets/works/Water/Thumbnail.png" width="100%" height="100%"/>
+                        </a>
+                    </div>
+                    <h3>卡通水</h3>
+                </section>
+                <section>
+                    <div class="inner">
+                        <a class="image" href="pages/cloud.html" target="_blank">
+                            <img alt="" src="assets/works/Cloud/poster.png" width="100%" height="100%"/>
+                        </a>
+                    </div>
+                    <h3>卡通云</h3>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <!--    Game development -->
+    <section class="wrapper style1 align-center divided">
+        <div class="inner">
+            <header><h2>其他练习</h2></header>
+            <p>我还没有机会参与完整的团队项目，但我曾尝试在游戏开发领域独自进行一些尝试。<br>虽然游戏开发不像制作图形效果那样令人兴奋，但我从这些经历中学到了很多。<br>这里还列出了我在Opengl、DCC工具方面的其他练习。</p>
+        </div>
+        <!-- Gallery -->
+        <div class="gallery style2 medium lightbox onscroll-fade-in">
+            <article>
+                <a class="image" href="pages/amblyopia_game.html" target="_blank">
+                    <img alt="" src="assets/works/Amblyopia/poster.png"/>
+                </a>
+                <div class="caption">
+                    <h3>光明传奇：进化之旅</h3>
+                    <p>用于弱视治疗的电子游戏设计研究</p>
+                    <ul class="actions fixed">
+                        <li><span class="button small">查看详情</span></li>
+                    </ul>
+                </div>
+            </article>
+            <article>
+                <a class="image" href="pages/chasm.html" target="_blank">
+                    <img alt="" src="assets/works/Chasm/Poster.png"/>
+                </a>
+                <div class="caption">
+                    <h3>Chasm</h3>
+                    <p>我的第一次游戏开发学习</p>
+                    <ul class="actions fixed">
+                        <li><span class="button small">查看详情</span></li>
+                    </ul>
+                </div>
+            </article>
+            <article>
+                <a class="image" href="pages/chasm.html" target="_blank">
+                    <img alt="" src="assets/works/TDA362/poster.png"/>
+                </a>
+                <div class="caption">
+                    <h3>OpenGL/路径追踪</h3>
+                    <p>在计算机图形学课程中的练习</p>
+                    <ul class="actions fixed">
+                        <li><span class="button small">查看详情</span></li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </section>
+
+
+    <!-- Other practice -->
+    <section class="wrapper style1 align-center divided">
+        <div class="inner">
+
+
+        </div>
+    </section>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+    document.getElementById('showResume').addEventListener('click', function () {
+
+        var content = document.getElementById('resume');
+        if (content.classList.contains('hidden-content')) {
+            content.classList.remove('hidden-content');
+            content.classList.add('show-content');
+
+            //    smooth scroll to resume
+            var element = document.getElementById("resume");
+
+            var targetElement = element;
+            var targetPosition = targetElement.getBoundingClientRect().top;
+            var startPosition = window.scrollY;
+            var startTime = null;
+            var duration = 1000;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                var timeElapsed = currentTime - startTime;
+                var run = ease(timeElapsed, startPosition, targetPosition, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+
+            function ease(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+
+            requestAnimationFrame(animation);
+
+        } else {
+            content.classList.remove('show-content');
+            content.classList.add('hidden-content');
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Legend of Light</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="divided">
+    <section class="wrapper style1 align-center divided">
+        <div class="inner">
+            <!--            空一段距离-->
+            <h1>光明传奇：净化之旅</h1>
+            <p>——用于弱视治疗的电子游戏设计研究</p>
+
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <video id="myVideo" style="width: 100%; height: auto;" controls="controls" preload="auto" volume="0.5">
+                <source src="../assets/works/Amblyopia/amblyopia_demo_cn.mp4" type="video/mp4">
+            </video>
+            <br><br>
+
+            <section class="wrapper style1 align-left onscroll-content-fade-up onload-image-fade-in">
+                <h2>介绍</h2>
+                这是一次关于严肃游戏的设计尝试
+                <br><br>
+                我总结了关于弱视电子游戏疗法的相关研究，并总结了治疗的互动模式。最后，我将这些互动模式与角色扮演游戏相结合，以增强治疗的乐趣。
+                <br><br>
+                光明传奇基于<a href="https://pubmed.ncbi.nlm.nih.gov/25060850/"> I-BiT </a> 理论，使用红蓝眼镜作为基础，调整游戏材料以分别呈现给弱视眼视觉刺激。测试系统基于<a
+                    href="https://ieeexplore.ieee.org/document/5713843">Long To</a>的研究，引入了用于测量弱视程度的模式，并根据精细视觉训练等理论，将特殊设计元素融入游戏画面中。最后，游戏采用 rogue-like 模式，为每个治疗会话提供独立的游戏体验，同时限制每个游戏的持续时间。
+                      <br><br>
+                游戏素材来自Unity商店和AI工具。该项目不用于商业用途。<br>
+                <br>
+
+            </section>
+
+        </div>
+    </section>
+</div>
+</body>
+
+<script>
+    var video = document.getElementById("myVideo");
+    video.volume = 0.20; // 设置初始音量为50%
+</script>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>
