@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OpenGL</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="">
+    <!-- Other practice -->
+    <section class="wrapper style1 align-center">
+        <div class="inner">
+            <div class="content-align-left align-left">
+                <a href="../index.html">homepage</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="./game_engine_cn.html">中文/English</a>
+            </div>
+            <h1>Shader Forge</h1>
+            <p>Practice in <a
+                    href="https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/TDA572/?acYear=2021/2022">Chalmers
+                course TDA572 Game engine architecture:</a><br>
+                Basic 2D game engine with features of 2d render pipeline, build on ECS<br>
+                <br>
+            </p>
+            <ul class="icons">
+                <li><a href="https://github.com/Ma-qy/PixelForge"
+                       class="icon brands style2 fa-github"><span
+                        class="label"></span></a></li>
+            </ul>
+
+            <section>
+                <video style="width: 100%; height: auto;" controls="controls" preload="auto">
+                    <source src="../assets/works/TDA362/pbr.mp4" type="video/mp4">
+                </video>
+                <h3>OpenGL PBR model(0:00 - 0:40) + Path tracing (0:40 - 1:11)</h3>
+            </section>
+
+
+            <section>
+                <div class="content align-left">
+                    <h2>Features in the engine</h2>
+                </div>
+                <div class="table-wrapper align-left">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>ECS</td>
+                            <td>Each system in the engine is based on ECS (Entitas library)</td>
+                        </tr>
+                        <tr>
+                            <td>Parallel rendering</td>
+                            <td>Support rendering objects to different layers, and then merge them together.</td>
+                        </tr>
+                        <tr>
+                            <td>Post-processing component/system</td>
+                            <td>Scalable post-processing system (including Bloom and Gaussian blur) that allows for
+                                adding
+                                different effects to different layers.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Lighting components/systems</td>
+                            <td>Pixel-based 2D lighting can add different lights to different layers.</td>
+                        </tr>
+                        <tr>
+                            <td>Render Tools</td>
+                            <td>Objects used for rendering, such as Renderer, Texture, RenderTexture (with FBO), and
+                                Blitter, encapsulated in a manner similar to Unity.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Other components/systems</td>
+                            <td>Camera (handling camera parameters), Renderer component (controlling object rendering
+                                process)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cellular automaton</td>
+                            <td>2D physics and world element updates based on cellular automata.</td>
+                        </tr>
+                        <tr>
+                            <td>Collision detection(in progress)</td>
+                            <td>Pixel-based collision detection.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section>
+                <div class="content align-left">
+                    <h2>2D light principle</h2>
+                </div>
+                <div class="content align-center">
+                    <div class="inner">
+                        <div class="content">
+                            <h4><b>Below is the process of generating 2D lighting from the Color Buffer.</b></h4>
+                        </div>
+                        <a class="image align-center" target="_blank">
+                            <img alt="" src="../assets/works/Game_engine/2d_light_00.png" width="100%"
+                                 height="100%"/>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="items style1 medium onscroll-fade-in">
+                    <section>
+                        <div class="inner">
+                            <a class="image" target="_blank">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_01.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>1. Retrieve ColorBuffer from screen</p>
+                    </section>
+                    <section>
+                        <div class="inner">
+                            <a class="image" target="_blank">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_02.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>2. Create LightRT with light pixel size as radius</p>
+                    </section>
+                    <section>
+                        <div class="inner">
+                            <a class="image">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_03.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>3. Blit the pixels near the light on the screen to LightRT, leaving blank the pixels that are
+                            off-screen</p>
+                    </section>
+                    <section>
+                        <div class="inner">
+                            <a class="image">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_04.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>4. Create a ShadowMap (RT) to capture the minimum distance from every angle. I set the width
+                            to
+                            be 360, emitting a ray every 1°, with a height of 1</p>
+                    </section>
+                    <section>
+                        <div class="inner">
+                            <a class="image">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_05.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>5. Create full-screen quad, render to ShadowMap.
+                            For each fragment in the ShadowMap,
+                            RayMarching to find the closest distance to the light source in that direction.</p>
+                    </section>
+                    <section>
+                        <div class="inner">
+                            <a class="image">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_07.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>6. The obtained shadow map records the closest distances of surrounding objects.</p>
+                    </section>
+                    <section>
+                        <div class="inner">
+                            <a class="image">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_08.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>7. Blit the screen, compare the distance from each fragment to the light source with the
+                            value
+                            recorded in the ShadowMap to determine whether to write the light color.</p>
+                    </section>
+                    <section>
+                        <div class="inner">
+                            <a class="image">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_09.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>8. Render to screen RT.</p>
+                    </section>
+                </div>
+
+                <div class="content align-left">
+                    <h3>Addition features in 2D light</h3></div>
+                <div class="index align-left">
+                    <section>
+                        <header>
+                            <a class="image" target="_blank">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_10.png" width="80%"
+                                     height="100%"/>
+                            </a>
+                        </header>
+                        <div class="content">
+                            <p>Using Gaussian blur to achieve softer shadow edges.</p>
+                        </div>
+                    </section>
+                    <section>
+                        <header>
+                            <a class="image" target="_blank">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_11.png" width="80%"
+                                     height="100%"/>
+                            </a>
+                        </header>
+                        <div class="content">
+                            <p>Added downsampling function sacrifices lightMap size and quality in exchange for higher
+                                performance. When combined with Gaussian blur, it can achieve good results.</p>
+                        </div>
+                    </section>
+                    <section>
+                        <header>
+                            <a class="image" target="_blank">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_13.png" width="80%"
+                                     height="100%"/>
+                            </a>
+                        </header>
+                        <div class="content">
+                            <p>By offloading calculations to GPU for parallel processing, namely utilizing Ray Marching,
+                                the
+                                overall performance is quite good. It can support a screen resolution of 1200*1200,
+                                full-resolution LightMap, radial stepping 200 times, circumferential stepping 360 times,
+                                and
+                                run
+                                300 lights at 60 frames per second (on 4070ti).</p>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </section>
+</div>
+</body>
+
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>
