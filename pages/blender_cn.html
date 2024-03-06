@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OpenGL</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<style>
+    .FlexContainer {
+        column-count: 2;
+        column-gap: 25px;
+    }
+
+    .FlexItem {
+        break-inside: avoid-column;
+    }
+
+    @media (min-width: 768px) {
+        .FlexItemHalf {
+            column-count: 4;
+        }
+    }
+
+    .FlexItem img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .FlexItem p {
+        margin-top: 5px; /* 增加文本段落的上边距 */
+    }
+
+</style>
+<body class="is-preload">
+
+<div id="wrapper" class="">
+    <!-- Other practice -->
+    <section class="wrapper style1 align-center">
+        <div class="inner">
+            <div class="content-align-left align-left">
+                <a href="../index_cn.html">主页</a> &nbsp;&nbsp;&nbsp;
+                <a href="./opengl.html">中文/English</a>
+            </div>
+            <h1>DCC 软件练习</h1>
+            <p>2019-2024 的一些建模、渲染练习，使用 Blender 制作 <br><br></p>
+
+
+            <div class="FlexItem">
+                <img src="../assets/works/Blender/axe_cn.png" alt="">
+                <p>PBR 流程建模练习</p>
+            </div>
+            <div class="FlexContainer">
+                <div class="FlexItem">
+                    <img src="../assets/works/Blender/tesla.png" alt="">
+                    <p>建模练习 - 特斯拉汽车</p>
+                </div>
+                <div class="FlexItem">
+                    <img src="../assets/works/Blender/box.png" alt="">
+                    <p>文创产品设计（建模、渲染 Cyclse）</p>
+                </div>
+                <div class="FlexItem">
+                    <img src="../assets/works/Blender/house.png" alt="">
+                    <p>卡通场景建模渲染练习（EEVEE)</p>
+                </div>
+                <div class="FlexItem">
+                    <img src="../assets/works/Blender/wheelChair.png" alt="">
+                    <p>轮椅概念设计</p>
+                </div>
+                <div class="FlexItem">
+                    <img src="../assets/works/Blender/fan.png" alt="">
+                    <p>电商产品渲染练习（Cycles）</p>
+                </div>
+            </div>
+            <div class="FlexItem">
+                <img src="../assets/works/Blender/toy.png" alt="">
+                <p>Glacier Crisis 儿童玩具设计、建模、渲染（Cycles） <a href="https://www.productdesignaward.eu/winners/epda/2022/10854/"> [欧洲产品设计奖]</a></p>
+            </div>
+
+        </div>
+    </section>
+</div>
+</body>
+
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>
