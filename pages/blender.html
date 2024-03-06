@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DCC</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<style>
+    .FlexContainer {
+        column-count: 2;
+        column-gap: 25px;
+    }
+
+    .FlexItem {
+        break-inside: avoid-column;
+    }
+
+    @media (min-width: 768px) {
+        .FlexItemHalf {
+            column-count: 4;
+        }
+    }
+
+    .FlexItem img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .FlexItem p {
+        margin-top: 5px; /* 增加文本段落的上边距 */
+    }
+
+</style>
+<body class="is-preload">
+
+<div id="wrapper" class="">
+    <!-- Other practice -->
+    <section class="wrapper style1 align-center">
+        <div class="inner">
+            <div class="content-align-left align-left">
+                <a href="../index.html">Homepage</a> &nbsp;&nbsp;&nbsp;
+                <a href="./blender_cn.html">中文/English</a>
+            </div>
+            <h1>DCC Practice</h1>
+            <p>Some modeling and rendering exercises from 2019 to 2024, using Blender. <br><br></p>
+
+
+            <div class="FlexItem">
+                <img src="../assets/works/Blender/axe_cn.png" alt="">
+                <p>PBR process modeling practice</p>
+            </div>
+            <div class="FlexContainer">
+                <div class="FlexItem">
+                    <img src="../assets/works/Blender/tesla.png" alt="">
+                    <p>Modeling practice - Tesla cars</p>
+                </div>
+                <div class="FlexItem">
+                    <img src="../assets/works/Blender/box.png" alt="">
+                    <p>Cultural and creative product design (modeling, rendering by Cyclse)</p>
+                </div>
+                <div class="FlexItem">
+                    <img src="../assets/works/Blender/house.png" alt="">
+                    <p>Cartoon scene modeling and rendering practice (EEVEE)</p>
+                </div>
+                <div class="FlexItem">
+                    <img src="../assets/works/Blender/wheelChair.png" alt="">
+                    <p>Concept design for wheelchair</p>
+                </div>
+                <div class="FlexItem">
+                    <img src="../assets/works/Blender/fan.png" alt="">
+                    <p>E-commerce product rendering practice (Cycles)</p>
+                </div>
+            </div>
+            <div class="FlexItem">
+                <img src="../assets/works/Blender/toy.png" alt="">
+                <p>Glacier Crisis - Children's toy design, modeling, rendering (Cycles) <a href="https://www.productdesignaward.eu/winners/epda/2022/10854/"> [European Product Design Award]</a></p>
+            </div>
+
+        </div>
+    </section>
+</div>
+</body>
+
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>
