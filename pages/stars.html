@@ -16,16 +16,24 @@
     <section class="wrapper style1 align-center">
         <div class="inner">
             <div class="content-align-left align-left">
-                <a href="../index_cn.html" >主页</a>
+                <a href="../index_cn.html">主页</a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="./opengl.html" >中文/English</a>
+                <a href="./opengl.html">中文/English</a>
             </div>
             <h1>VFX Graph 练习 - 秋与星河</h1>
-                <section>
-                    <video style="width: 100%; height: auto;" controls="controls" preload="auto">
-                        <source src="../assets/works/Stars/stars.mp4" type="video/mp4">
-                    </video>
-                </section>
+            <section>
+                <video style="width: 100%; height: auto;" controls="controls" preload="auto">
+                    <source src="../assets/works/Stars/DEMO.mp4" type="video/mp4">
+                </video>
+            </section>
+        </div>
+
+
+        <div class="inner align-left">
+            <h2>概述</h2>
+            <p><br>通过AnyTrail获取流体速度RT后，传入VFX graph，让粒子朝流体速度方向移动
+                <br>枫叶实现方法：空中生成枫叶->湍流、重力、drag->落地后原地生成新枫叶->跟随流体运动
+                <br>星河实现方法：空中生成流星->重力、拖尾->落地后原地生成涟漪（wrap屏幕颜色）和缓慢坠落的流星 </p>
         </div>
     </section>
 </div>

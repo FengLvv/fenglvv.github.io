@@ -38,6 +38,27 @@
                 <div class="image" style="width: 100%">
                     <img src="../assets/works/Sand/Features.png" alt="" style="width: 100%"/>
                 </div>
+                <br>
+                <br>
+                <br>
+
+                <h3>POM采样轨迹的实现：</h3>
+                <p><br>在通过AnyTrail获取轨迹后，可以通过POM的方法采样轨迹来模拟脚印深度，相对tessellation有更好的性能
+                <br>1. 若直接采样轨迹会导致脚印与角色位置无法对齐，所以需要向前多绘制一段距离
+                <br>2. 为了让脚印有深度，需要将角色脚的位置向地下移动一段距离，并在fragment shader中手动将脚印部分的SV_Depth手动写深一些   </p>
+                <div class="image" style="width: 100%">
+                    <img src="../assets/works/Sand/trail.png" alt="" style="width: 100%"/>
+                </div>
+
+                <br>
+                <br>
+                <br>
+
+
+                <h2>绘制过程</h2>
+                <div class="image" style="width: 100%">
+                    <img src="../assets/works/Sand/process.gif" alt="" style="width: 100%"/>
+                </div>
             </div>
 
         </div>

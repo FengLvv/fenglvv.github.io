@@ -23,72 +23,79 @@
             <h1>Fenglvv's Toon Shader</h1>
             <p>主观渲染的日式风格角色。模型来自 <a
                     href="https://www.aplaybox.com/details/model/i4Xo1E6NKg2v">少女前线2 MMD.</a><br>
-                <a href="../assets/works/3R2_GROZA/GF.exe" download="3R2_Playground.exe">点击下载游乐场 (*^_^*)<br>[鼠标左键旋转，中键按压上下移动，中键滚动缩放 ]</a></p>
             <ul class="icons">
                 <li><a href="https://github.com/FengLvv/Fenglvv-Toon-Shader" class="icon brands style2 fa-github"><span
                         class="label">Twitter</span></a></li>
             </ul>
             <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
             <video style="width: 100%; height: auto;" controls="controls" preload="auto"
-                   poster="/FengLvv.github.io/assets/works/3R2_GROZA/Video_pic.jpg">
-                <source src="../assets/works/3R2_GROZA/Groza_Compressed_cn.mp4" type="video/mp4">
+                   poster="/FengLvv.github.io/assets/works/3R2_GROZA/poster.png">
+                <source src="../assets/works/3R2_GROZA/Groza_Compressed.mp4" type="video/mp4">
             </video>
             <br><br>
 
             <section class="wrapper style1 align-left">
                 <h2>介绍</h2>
                 这个着色器展示了渲染日式卡通角色的部分过程。<br>
-                该着色器基于Unity URP，并利用URP RenderFeature 来实现特定效果。我修改了模型的一些部分，主要是法线，以改善着色。
+                该着色器基于Unity URP，并利用URP RenderFeature 来定制渲染管线。
                 <br> <br>
             </section>
         </div>
 
 
-        <section
-                class="spotlight style4 orient-left content-align-left image-position-center onscroll-content-fade-up onload-image-fade-in"
-                id="first">
-            <div class="content">
-                <h2>Shader 特性</h2>
-                <ul>
-                    <li>NPR + GGX 高光 + 迪士尼漫射</li>
-                    <li>法线外扩描边, 屏幕空间等距内描边</li>
-                    <li>屏幕空间偏移的动态刘海</li>
-                    <li>眉毛穿过头发（模板）</li>
-                    <li>SDF 面部阴影</li>
-                    <li>Kajiya 各向异性头发高光</li>
-                </ul>
-            </div>
-            <div class="image" style="width: 100%">
-                <img src="../assets/works/3R2_GROZA/Intro1_cn.png" alt=""/>
-            </div>
-        </section>
-
-
-
-
         <div class="inner">
             <section class="wrapper style1 align-left">
-                <h2>其他细节</h2>
+                <h2>Shader 特性</h2>
                 <ul>
-                    <li><b>法线重映射</b>来优化高光形状<br><br>
+                    <li>外描边：使用脚本平滑法线并转化到tangent空间，记录到顶点色rgb中，使用alpha控制描边粗细
+                        <br>内描边：屏幕空间比较模型深度和周围深度，超过阈值则画为外描边
+                        <br>基本着色：使用 Lambert 二分 + GGX 高光 + 环境 CubeMap + 暗部叠加渐变贴图
+                        <br>
                         <span class="image fit">
-                            <img src="../assets/works/3R2_GROZA/normal_remap.png" alt=""/><br><br>
+                            <img src="../assets/works/3R2_GROZA/overview1.png" alt=""/><br>
                         </span>
                     </li>
-                    <li>使用 <b>FlowMap</b> 重构切线方形来绘制 Kajiya 头发高光.<br><br>
+                    <li>SDF面部阴影：使用角色前向和光线的夹角计算step值，将SDF贴图二分为阴影和非阴影区域
+                        <br>眉毛穿过头发：将头发和面部写入模板，眉毛在最后绘制，绘制在面部和头发上方
+                        <br>屏幕空间刘海阴影：将面部写入模板，将头发沿着光线方向偏移，以阴影颜色在模板区域绘制
+                        <br>
                         <span class="image fit">
-                            <img src="../assets/works/3R2_GROZA/Kajiya.png" alt=""/><br><br>
+                            <img src="../assets/works/3R2_GROZA/overview2.png" alt=""/><br>
+                        </span>
+                    </li>
+                    <li>使用顶点色alpha通道控制外描边粗细，修整角色头发和面部描边<br>
+                        <span class="image fit">
+                            <img src="../assets/works/3R2_GROZA/hail_vertCol.png" alt=""/><br>
+                        </span>
+                    </li>
+                    <li><b>法线重映射</b>来优化高光形状
+                        <br>将头发法线映射到近似球形，避免刘海亮暗二分细碎，得到平滑的头发明暗分布
+                        <br>
+                        <span class="image fit">
+                            <img src="../assets/works/3R2_GROZA/normal_remap.png" alt=""/><br>
+                        </span>
+                    </li>
+                    <li>沿高光流动方向为头发绘制 Flow Map, 转化到 Tangent 空间，存储到贴图中<br>
+                        使用kajiya-kay方法绘制双层高光<br>
+                        <span class="image fit">
+                            <img src="../assets/works/3R2_GROZA/flow_map.png" alt=""/><br>
                         </span>
                     </li>
 
+                    <li>使用视差方法绘制眼球，让眼球看起来具有深度<br>
+                        <span class="image fit">
+                            <img src="../assets/works/3R2_GROZA/parallax.png" alt=""/><br>
+                        </span>
+                    </li>
+
+                    <li>使用与 Directional Light 相同方向的阴影相机单独记录特定tag物体的深度，在shader中比较阴影相机深度实现高精度的角色自投影<br>
+                        <span class="image fit">
+                            <img src="../assets/works/3R2_GROZA/Single_Shadow.png" alt=""/><br>
+                        </span>
+                    </li>
                 </ul>
 
             </section>
-
-            <br> <br>
-            <br> <br>
-            <a href="../assets/works/3R2_GROZA/GF.exe" download="3R2_Playground.exe">不要忘记下载游乐场 (*^_^*)<br>[鼠标左键旋转，中键按压上下移动，中键滚动缩放 ]</a>
-                </a>
         </div>
     </section>
 </div>

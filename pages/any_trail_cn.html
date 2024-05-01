@@ -36,27 +36,34 @@
 
             <section class="wrapper style1 align-left onscroll-content-fade-up onload-image-fade-in">
                 <h2>介绍</h2>
-                该插件可以在角色脚下生成一块<b>随角色移动的画布</b>，将角色的运动信息传递给画布，并将轨迹绘制为RT。<br>
-                所有图案绘制都在compute shader中完成，无需额外的相机。RT资源根据所需效果分配。<br>RT可以在<b>物体着色阶段</b>作为遮罩传递给地形和其他对象。<br><br>
+                <ul>
+                    <li> AnyTrail 可以让角色在脚下的RT上绘制轨迹，并计算流体和波纹</li>
+                    <li> 所有功能都在 Compute shader 中完成</li>
+                    <li>绘制结果可用于渲染轨迹/特效</li>
+                </ul>
 
                 <br><br>
                 <h2>功能</h2>
-                当前支持四类轨迹，但系统可以扩展以支持任何程序图形：<br>
+                当前支持四类轨迹，但系统通过合理的数据结构支持扩展为绘制任何程序化图像（如树枝、分形、噪波等）<br>
 
                 <ul>
-                    <li> <b>2D 流体:</b>使用 Jacobi iteration 解 NS 方程, 可以用来绘制可交互液体（数值法求解二维NS方程也在ComputeShader中完成）
-                    </li>
-                    <li> <b>表面波纹:</b> 近似模拟波动方程, 可以用来模拟玩家与浅水表面的交互
-                    </li>
-                    <li> <b>轨迹:</b> 持续的绘制圆圈, 可以用来绘制连续的轨迹（用在沙地、雪地等情景）
-                    </li>
-                    <li><b> 图案:</b> 绘制任何形状的图案，可控制随机数量和位置以形成粒子效果。用来绘制任何形状的足迹用于影响地面着色
-                    </li>
+                    <li> <b>2D 流体:</b>使用欧拉法解 2D NS 方程, 纹理像素作为流体元，可以用来绘制可交互液体/气体效果                    </li>
+                    <li> <b>表面波纹:</b>近似模拟波动方程, 可以用来模拟玩家与浅水表面的交互                    </li>
+                    <li> <b>轨迹:</b> 持续的绘制圆圈, 可以用来绘制连续的轨迹（用在沙地、雪地等情景）                    </li>
+                    <li><b> 图案:</b> 绘制任何形状的图案，可控制随机数量和位置以形成粒子效果。用来绘制任何形状的足迹用于影响地面着色                    </li>
+                    <div class="image" style="width: 100%">
+                        <img src="../assets/works/Any_trail/patterns.png" alt="" style="width: 100%"/>
+                    </div>
+
                 </ul>
+
                 <br><br>
                 <h2>插件结构</h2>
+                <p>插件主要有三部分组成：画笔脚本（绑定在角色上发送绘画指令），画布（接受绘画指令并处理后发送给计算器），计算器（根据接受到的指令绘制RT）<br>
+                另外，画布还实时判断角色和画布的相对位置，以移动画布位置，保证画布始终在角色脚下。
+                </p>
                 <div class="image" style="width: 100%">
-                    <img src="../assets/works/Any_trail/Flow_cn.png" alt="" style="width: 100%"/>
+                    <img src="../assets/works/Any_trail/Flow.png" alt="" style="width: 100%"/>
                 </div>
 
                 <br><br>
@@ -67,6 +74,18 @@
                         </a>
                         <a class="image" href="../pages/toon_water_cn.html" target="_blank">
                             <img alt="" src="../assets/works/Water/Thumbnail.png" width="50%" height="50%"/>
+                        </a>
+                    </li>
+                    <li><a href="../pages/toon_water_cn.html" target="_blank">秋与星河: &nbsp VFX graph与流体交互
+                    </a>
+                        <a class="image" href="../pages/stars.html" target="_blank">
+                            <img alt="" src="../assets/works/Stars/poster.png" width="50%"/>
+                        </a>
+                    </li>
+                    <li><a href="../pages/toon_water_cn.html" target="_blank">风格化沙漠：使用POM采样轨迹形成沙坑效果
+                    </a>
+                        <a class="image" href="../pages/toon_sand_cn.html" target="_blank">
+                            <img alt="" src="../assets/works/Sand/Poster.png" width="50%"/>
                         </a>
                     </li>
                 </ol>
