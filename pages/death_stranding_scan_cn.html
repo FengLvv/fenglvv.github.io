@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Death stranding scan</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="">
+    <section class="wrapper style1 align-center ">
+        <div class="inner">
+            <div class="content-align-left align-left">
+                <a href="../index_cn.html">主页</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="./toon_water.html">中文/English</a>
+            </div>
+            <h1>死亡搁浅扫描效果复刻</h1>
+            <p>后处理扫描、后处理描边、实例化渲染<br></p>
+
+            <ul class="icons">
+                <li><a href="https://zhuanlan.zhihu.com/p/697271173" class="icon brands style2 fa-zhihu"><span
+                        class="label">知乎</span></a></li>
+                <li><a href="https://github.com/FengLvv/Death-stranding-scan"
+                       class="icon brands style2 fa-github"><span
+                        class="label">github</span></a></li>
+            </ul>
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <video style="width: 100%; height: auto;" controls="controls" preload="auto"
+                   poster="/FengLvv.github.io/assets/works/DeathStranding/Poster.png">
+                <source src="../assets/works/DeathStranding/death%20stranding%20scan%20effect.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <section class="wrapper style1 align-left ">
+        <div class="inner">
+            <h2>制作思路</h2>
+            <p>更详细的制作记录请访问我的知乎专栏： <a href="https://zhuanlan.zhihu.com/p/697271173">https://zhuanlan.zhihu.com/p/697271173</a>
+            </p>
+
+            <p>
+                <b>扫描效果：</b><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; 1 使用深度图重建世界坐标，用场景世界坐标和扫描起点坐标计算距离图<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/depth.png" width="70%" alt=""/><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp; 2 使用距离图 + frac + smoothStep 做出扫描线和扫描范围<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/scan.png" width="70%" alt=""/><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp; 3 扫描范围 * 扫描线得到范围内的扫描线, &nbsp; c# &nbsp; 中用 &nbsp; DOTWEEN &nbsp;  做扫描动画<br>
+            </p>
+
+
+            <p>
+                <b>描边：</b><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; 1 用深度图 + Sobel 算子计算描边<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/outline_ori.png" width="70%" alt=""/><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp; 2 用深读图做描边遮罩，减少远处描边强度<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/outline.png" width="70%" alt=""/><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp; 3 用扫描范围控制描边的显示<br>
+            </p>
+
+            <p>
+                <b>地面指示器：</b><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; 1 用阵列射线检测查询标记位置和法线，通过法线区分标记类型<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/mark_data.png" width="70%" alt=""/><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp; 2 用&nbsp;  Async &nbsp; 异步方法分摊碰撞检测到多帧进行，消耗从单帧 15.07ms 到每帧 0.17ms<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/performance.png" width="70%" alt=""/><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp; 3 用 GPU Instance 方法批量绘制地面标记，顶点着色器中将面片重绘为 Billboard<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/marks.png" width="70%" alt=""/><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp; 4 片元着色器手动写入深度，解决标记和地面的遮挡问题<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/frag_depth.png" width="70%" alt=""/><br>
+            </p>
+
+            <p>
+                <b>粒子：</b><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; 1 在生成标记的时候创建粒子实例，播放后自动销毁<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/particle.png" width="70%" alt=""/><br>
+            </p>
+
+            <p>
+                <b>最终效果：</b><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; <img src="../assets/works/DeathStranding/final_effect.png" width="70%" alt=""/><br>
+            </p>
+        </div>
+    </section>
+
+    <section class="wrapper style1 align-left ">
+        <div class="inner">
+            <h2>借物表</h2>
+            <p>环境资产: <a href="https://assetstore.unity.com/packages/3d/environments/landscapes/real-landscapes-valley-forest-194338"> real landscapes - valley forest
+                (From unity asset store)</a> <br>
+        </div>
+    </section>
+</div>
+
+</body>
+
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>
