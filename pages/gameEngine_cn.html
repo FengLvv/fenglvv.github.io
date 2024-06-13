@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pixel Forge</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="">
+    <!-- Other practice -->
+    <section class="wrapper style1 align-center">
+        <div class="inner">
+            <div class="content-align-left align-left">
+                <a href="../index_cn.html">homepage</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="gameEngine.html">中文/English</a>
+            </div>
+            <h1>Pixel Forge</h1>
+            <p>在<a
+                    href="https://www.chalmers.se/en/education/your-studies/find-course-and-programme-syllabi/course-syllabus/TDA572/?acYear=2021/2022">查尔姆斯大学课程
+                TDA572 游戏引擎架构</a>的项目:<br>
+                基于自研引擎的沙盘游戏<br>
+                <br>
+            </p>
+            <ul class="icons">
+                <li><a href="https://github.com/Ma-qy/PixelForge"
+                       class="icon brands style2 fa-github"><span
+                        class="label"></span></a></li>
+            </ul>
+
+            <section>
+                <video style="width: 100%; height: auto;" controls="controls" preload="auto">
+                    <source src="../assets/works/Game_engine/accelerate.mp4" type="video/mp4">
+                </video>
+                <h3>Pixel Forge</h3>
+            </section>
+            <section>
+                <div class="wrapper align-left">
+                    <h2>项目介绍</h2>
+                    <p>
+                        这是在查尔姆斯理工大学TDA572课程期间完成的项目。该项目主页制作了一个2D游戏引擎，基于C#、Entitas、OpenGL开发，实现了基本的渲染架构，并在2D灯光与元胞自动机两个方面加入了更深入的特性。我在项目中负责：1) 搭建渲染管线; &nbsp;&nbsp; 2) 实现2D灯光和后处理系统;&nbsp;&nbsp; 3) 编写元胞自动机模块 Shader;&nbsp;&nbsp; 4) 调整项目美术效果。</p>
+                </div>
+            </section>
+
+            <section>
+                <div class="content align-left">
+                    <h2>引擎的特性</h2>
+                </div>
+
+                <div class="table-wrapper align-left">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>特性</th>
+                            <th>描述</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>ECS</td>
+                            <td>引擎中的每个系统都基于 ECS（Entitas 库）</td>
+                        </tr>
+                        <tr>
+                            <td>平行渲染</td>
+                            <td>支持将对象渲染到不同的图层，然后将它们合并在一起;渲染流程基于OpenGL和Silk.Net</td>
+                        </tr>
+                        <tr>
+                            <td>后处理组件/系统</td>
+                            <td>可扩展的后处理系统（包括Bloom和高斯模糊），允许为不同的图层添加不同的效果
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>照明组件/系统</td>
+                            <td>基于像素的2D光照，可以为不同图层添加不同的光源</td>
+                        </tr>
+                        <tr>
+                            <td>渲染工具</td>
+                            <td>仿照Unity封装的用于渲染的对象，如Renderer, Texture, RenderTexture(带有FBO), Blitter等
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>其他组件/系统</td>
+                            <td>相机（处理相机参数）、Renderer 组件（控制物体渲染过程）
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>元胞自动机（主要由其他组员完成）</td>
+                            <td>基于元胞自动机的世界元素更新，用来模拟水、火、沙等物理交互</td>
+                        </tr>
+                        <tr>
+                            <td>碰撞检测（主要由其他组员完成）</td>
+                            <td>基于像素的碰撞检测</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section>
+                <div class="content align-left">
+                    <h2>2D light principle</h2>
+                </div>
+                <section>
+                    <h3>Pixel Forge - 2D 灯光分支</h3>
+                    <video style="width: 100%; height: auto;" controls="controls" preload="auto">
+                        <source src="../assets/works/Game_engine/PixelForge.mp4" type="video/mp4">
+                    </video>
+                </section>
+                <div class="content align-center">
+                    <div class="inner">
+                        <div class="content">
+                            <h4><b>下面将介绍从 Color Buffer 生成 2D 灯光的过程</b></h4>
+                        </div>
+                        <a class="image align-center" target="_blank">
+                            <img alt="" src="../assets/works/Game_engine/2d_light_00.png" width="100%"
+                                 height="100%"/>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="items style1 medium onscroll-fade-in">
+                    <section>
+                        <div class="inner">
+                            <a class="image" target="_blank">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_01.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>1. 从屏幕获取获取ColorBuffer</p>
+                    </section>
+                    <section>
+                        <div class="inner">
+                            <a class="image" target="_blank">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_02.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>2. 以灯光像素尺寸为半径创建LightRT</p>
+                    </section>
+                    <section>
+                        <div class="inner">
+                            <a class="image">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_03.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>3. 将屏幕中灯光附近的像素Blit到LightRT上，超出屏幕的像素保持空白</p>
+                    </section>
+                    <section>
+                        <div class="inner">
+                            <a class="image">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_04.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>4. 创建ShadowMap(RT)用于接受每个角度的最小距离
+                            我设置的宽度为360，每1°发射一条光线，高度为1</p>
+                    </section>
+                    <section>
+                        <div class="inner">
+                            <a class="image">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_05.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>5. 创建全屏面片，渲染到ShadowMap。
+                            ShadowMap的
+                            每个片元RayMarching得到该方向上距离光源最近的距离</p>
+                    </section>
+                    <section>
+                        <div class="inner">
+                            <a class="image">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_07.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>6. 获得的阴影图记录了周围物体的最近距离</p>
+                    </section>
+                    <section>
+                        <div class="inner">
+                            <a class="image">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_08.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>7. Blit一遍屏幕大小的RT，比较每个片元到光源的距离和 ShadowMap
+                            记录的值，来判断是否写入灯光颜色</p>
+                    </section>
+                    <section>
+                        <div class="inner">
+                            <a class="image">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_09.png" width="100%"
+                                     height="100%"/>
+                            </a>
+                        </div>
+                        <p>8. 将灯光渲染到屏幕</p>
+                    </section>
+                </div>
+
+                <div class="content align-left">
+                    <h3>其他2D光的特性</h3></div>
+                <div class="index align-left">
+                    <section>
+                        <header>
+                            <a class="image" target="_blank">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_10.png" width="80%"
+                                     height="100%"/>
+                            </a>
+                        </header>
+                        <div class="content">
+                            <p>使用高斯模糊来实现更柔和的阴影边缘</p>
+                        </div>
+                    </section>
+                    <section>
+                        <header>
+                            <a class="image" target="_blank">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_11.png" width="80%"
+                                     height="100%"/>
+                            </a>
+                        </header>
+                        <div class="content">
+                            <p>
+                                增加了降采样功能，牺牲lightMap尺寸和质量来换取更高的性能。配合高斯模糊也可以取得不错的效果。.</p>
+                        </div>
+                    </section>
+                    <section>
+                        <header>
+                            <a class="image" target="_blank">
+                                <img alt="" src="../assets/works/Game_engine/2d_light_13.png" width="80%"
+                                     height="100%"/>
+                            </a>
+                        </header>
+                        <div class="content">
+                            <p>由于将计算托管到GPU并行处理，即使用了Ray Marching,
+                                整体性能还不错。可以支持屏幕1200*1200，全分辨率LightMap，径向步进200次，圆周步进360次，300盏灯运行60帧（4070ti）。</p>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </section>
+</div>
+</body>
+
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>

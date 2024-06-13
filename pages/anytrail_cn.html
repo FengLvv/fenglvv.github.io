@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Any Trail</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="divided">
+    <section class="wrapper style1 align-center divided">
+        <div class="inner">
+            <div class="content-align-left align-left">
+                <a href="../index_cn.html" >主页</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="anytrail.html" >中文/English</a>
+            </div>
+            <!--            空一段距离-->
+            <h1>Any Trail</h1>
+            <p>在玩家脚下创建任何轨迹并生成RT<br>
+                <a href="../assets/works/Any_trail/AnyTrail.exe" download="AnyTrail_Playground.exe">点击下载游乐场
+                    (*^_^*)<br>[WSAD移动, 空格画轨迹, 1234 开关不同画笔]</a></p>
+            <ul class="icons">
+                <li><a href="https://github.com/FengLvv/AnyTrail" class="icon brands style2 fa-github"><span
+                        class="label">Github</span></a></li>
+            </ul>
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <video style="width: 100%; height: auto;" controls="controls" preload="auto">
+                <source src="../assets/works/Any_trail/AnyTrail4K_Composed.mp4" type="video/mp4">
+            </video>
+            <br><br>
+
+            <section class="wrapper style1 align-left onscroll-content-fade-up onload-image-fade-in">
+                <h2>介绍</h2>
+                <ul>
+                    <li> AnyTrail 可以让角色在脚下的RT上绘制轨迹，并计算流体和波纹</li>
+                    <li> 目前支持流体/轨迹/波纹/图案（可任意拓展） </li>
+                    <li> 所有功能都在 Compute shader 中完成</li>
+                    <li>绘制结果可用于渲染轨迹/特效</li>
+                </ul>
+
+                <br><br>
+                <h2>详细介绍</h2>
+                当前支持四类轨迹，但系统通过合理的数据结构支持扩展为绘制任何程序化图像（如树枝、分形、噪波等）<br>
+
+                <ul>
+                    <li> <b>2D 流体:</b>使用欧拉法解 2D NS 方程, 纹理像素作为流体元，可以用来绘制可交互液体/气体效果                    </li>
+                    <li> <b>表面波纹:</b>近似模拟波动方程, 可以用来模拟玩家与浅水表面的交互                    </li>
+                    <li> <b>轨迹:</b> 持续的绘制圆圈, 可以用来绘制连续的轨迹（用在沙地、雪地等情景）                    </li>
+                    <li><b> 图案:</b> 绘制任何形状的图案，可控制随机数量和位置以形成粒子效果。用来绘制任何形状的足迹用于影响地面着色                    </li>
+                    <div class="image" style="width: 100%">
+                        <img src="../assets/works/Any_trail/patterns.png" alt="" style="width: 100%"/>
+                    </div>
+
+                </ul>
+
+                <br><br>
+                <h2>插件结构</h2>
+                <p>插件主要有三部分组成：画笔脚本（绑定在角色上发送绘画指令），画布（接受绘画指令并处理后发送给计算器），计算器（根据接受到的指令绘制RT）<br>
+                另外，画布还实时判断角色和画布的相对位置，以移动画布位置，保证画布始终在角色脚下。
+                </p>
+                <div class="image" style="width: 100%">
+                    <img src="../assets/works/Any_trail/Flow.png" alt="" style="width: 100%"/>
+                </div>
+
+                <br><br>
+                <h2>使用方式</h2>
+                <p>在画布跟随的物体添加 Any Trail Canvas 组件，在画笔物体加速 Fluid/Trail/Pattern/Wave Writer 组件，然后就可以画了
+                </p>
+                <div class="image" style="width: 100%">
+                    <video style="width: 100%; height: auto;" controls="controls" preload="auto">
+                        <source src="../assets/works/Any_trail/use-1.mp4" type="video/mp4">
+                    </video>
+                    </li>
+                </div>
+
+                <br><br>
+                <h2>使用案例</h2>
+                <ol>
+                    <li> <a href="../pages/toon_water_cn.html" target="_blank">卡通水: &nbsp 浅水交互
+                        </a>
+                        <a class="image" href="../pages/toon_water_cn.html" target="_blank">
+                            <img alt="" src="../assets/works/Water/Thumbnail.png" width="50%" height="50%"/>
+                        </a>
+                    </li>
+                    <li><a href="stars_cn.html" target="_blank">秋与星河: &nbsp VFX graph与流体交互
+                    </a>
+                        <a class="image" href="stars_cn.html" target="_blank">
+                            <img alt="" src="../assets/works/Stars/poster.png" width="50%"/>
+                        </a>
+                    </li>
+                    <li><a href="../pages/toon_sand_cn.html" target="_blank">风格化沙漠：使用POM采样轨迹形成沙坑效果
+                        <a class="image" href="../pages/toon_sand_cn.html" target="_blank">
+                            <img alt="" src="../assets/works/Sand/Poster.png" width="50%"/>
+                        </a>
+                    </a>
+                </ol>
+
+                <br> <br>
+                <br> <br>
+            </section>
+
+
+            <a href="../assets/works/Any_trail/AnyTrail.exe" download="AnyTrail_Playground.exe">不要忘了下载游乐场 (*^_^*)<br>[WSAD移动, 空格画轨迹, 1234 开关不同画笔]</a>
+        </div>
+    </section>
+</div>
+</body>
+
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>

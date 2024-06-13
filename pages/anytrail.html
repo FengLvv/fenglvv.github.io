@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Any Trail</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="divided">
+    <section class="wrapper style1 align-center divided">
+        <div class="inner">
+            <div class="content-align-left align-left">
+                <a href="../index.html" >Homepage</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="anytrail_cn.html" >中文/English</a>
+            </div>
+            <!--            空一段距离-->
+            <h1>Any Trail</h1>
+            <p>Create any shape of trail under player and generate RT<br>
+                <a href="../assets/works/Any_trail/AnyTrail.exe" download="AnyTrail_Playground.exe">Click here to
+                    download
+                    playground (*^_^*)<br>[WSAD to move, space to draw, 1234 to open/close brushes ]</a></p>
+            <ul class="icons">
+                <li><a href="https://github.com/FengLvv/AnyTrail" class="icon brands style2 fa-github"><span
+                        class="label">Github</span></a></li>
+            </ul>
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <video style="width: 100%; height: auto;" controls="controls" preload="auto">
+                <source src="../assets/works/Any_trail/AnyTrail4K_Composed.mp4" type="video/mp4">
+            </video>
+            <br><br>
+
+            <section class="wrapper style1 align-left onscroll-content-fade-up onload-image-fade-in">
+                <h2>Introduction</h2>
+                This plugin can generate a canvas under the character's feet that <b>moves with the character</b>, pass
+                the character's
+                movement information to the canvas, and draw the trajectory as <b>RT</b>.<br>
+                All pattern drawing is done in the <b>Computer Shader</b>, no additional camera is needed, and the RT
+                resources are <b>dynamically allocated</b> with respect to required effect<br>
+                RT can be passed into the terrain and other objects as a <b>mask in the shading stage.</b>
+                <br> <br>
+                <h2>Function</h2>
+                Four types of trajectories are supported, but the system can be expanded to support any procedural
+                graphics: <br>
+
+                <ul>
+                    <li> <b>2D fluid:</b> Jacobi iteration method to solve the Navier-Stokes equations, can be used for
+                        interaction with
+                        the sea
+                    </li>
+                    <li> <b>Surface Ripple:</b> Wave equation, can be used for interaction with players on shallow water
+                        surface
+                    </li>
+                    <li> <b>Trajectory:</b> Continuous drawing of circles, can be used to draw continuous tracks on sand or
+                        snow
+                    </li>
+                    <li><b> Pattern:</b> Draw any pattern, control random quantity and position. Used for drawing footprints of
+                        any
+                        shape or particle effects affecting the terrain
+                    </li>
+                </ul>
+
+                <h2>Construction</h2>
+                <div class="image" style="width: 100%">
+                    <img src="../assets/works/Any_trail/Flow.png" alt="" style="width: 100%"/>
+                </div>
+
+                <br><br>
+
+                <h2>Use case</h2>
+                <ol>
+                    <li> <a href="../pages/toon_water.html" target="_blank">Toon water: &nbsp Shallow water surface
+                        interaction</a>
+                        <a class="image" href="../pages/toon_water.html" target="_blank">
+                            <img alt="" src="../assets/works/Water/Thumbnail.png" width="50%" height="50%"/>
+                        </a>
+                    </li>
+                </ol>
+
+                <br> <br>
+                <br> <br>
+            </section>
+
+
+            <a href="../assets/works/Any_trail/AnyTrail.exe" download="AnyTrail_Playground.exe">Don't forget! Click here
+                to
+                download
+                playground (*^_^*)<br>[WSAD to move, space to draw, 1234 to open/close brushes ]</a>
+        </div>
+    </section>
+</div>
+</body>
+
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>

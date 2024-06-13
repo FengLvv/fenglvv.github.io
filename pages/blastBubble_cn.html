@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blast bubble</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="">
+    <section class="wrapper style1 align-center divided">
+        <div class="inner">
+            <div class="content-align-left align-left">
+                <a href="../index_cn.html">主页</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="amblyopiaGame.html">中文/English</a>
+            </div>
+            <!--            空一段距离-->
+            <h1>爆炸泡泡</h1>
+            <p>Houdini模拟，制作 VAT 与 SDF，Unity 渲染薄膜干涉<br></p>
+
+            <ul class="icons">
+                <li><a href="https://zhuanlan.zhihu.com/p/703044996" class="icon brands style2 fa-zhihu"><span
+                        class="label">Zhihu</span></a></li>
+                <li><a href="https://github.com/FengLvv/VATTest/tree/main" class="icon brands style2 fa-github"><span
+                        class="label">Zhihu</span></a></li>
+            </ul>
+
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <video id="myVideo" style="width: 100%; height: auto;" controls="controls" preload="auto" volume="1">
+                <source src="../assets/works/BlastBubble/bubble.mp4" type="video/mp4">
+            </video>
+            <br><br>
+
+
+        </div>
+    </section>
+
+
+    <section class="wrapper style1 align-left ">
+        <div class="inner">
+            <h2>制作思路</h2>
+            <p>我将详细的制作过程记录在知乎专栏中： <a href="Https://zhuanlan.zhihu.com/p/703044996">爆炸泡泡特效效果记录</a>
+            </p>
+
+            <p>
+            1 在 Houdini 中制作爆炸泡泡特效，拆分为泡沫和泡泡两个部分<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240613165049.png" width="70%" alt=""/><br>
+
+            2 将泡沫部分使用 Remesh 和 Attrubute blur 节点减面到 5000 左右，并导出为 VAT<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612172730.png" width="35%%" alt=""/><br>
+
+            3 将泡泡部分使用 UV 烘焙出遮罩图，使用自制的 SDF 工具生成 SDF 和渐变遮罩图<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://picx.zhimg.com/70/v2-24220c1f120617fd3de5094cd69313fb_1440w.avis?source=172ae18b&biz_tag=Post" width="70%" alt=""/><br>
+
+            4 在 Unity 中写 shader 利用渐变遮罩图制作泡泡爆开动画，配合 VAT 模型实现完整效果<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/PixPin_2024-06-11_10-57-38.gif" width="35%%" alt=""/><br>
+
+            5 在 Houdini 中绘制 Flow map，模拟泡泡表面流动<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612100413.png" width="70%" alt=""/><br>
+
+            6 Unity 中用 Flowmap 扰动法线贴图，来形成表面流动的效果<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612093450.png" width="35%%" alt=""/><br>
+
+            7 液泡的水会从上往下流动，所以上面薄下面厚。再叠加法线的噪波最扰动，绘制厚度图，作为光谱采样的 X 轴<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612174901.png" width="35%%" alt=""/><br>
+
+            8 使用法线和视线方向计算角度，作为光谱采样的 Y 轴<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612174956.png" width="35%%" alt=""/><br>
+
+            8 使用厚度和角度来采样光谱图<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/PixPin_2024-06-12_09-59-16.gif" width="35%%" alt=""/><br>
+
+            9 用相反方向采样两次天空盒，使用厚度混合，模拟双面反射<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612175402.png" width="35%" alt=""/><br>
+
+            10 因为泡泡中反射亮的地方薄膜干涉也明显，所以用反射天空盒的结果做一个明度图，去乘薄膜干涉图<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240613170455.png" width="35%" alt=""/><br>
+
+            11 最后把薄膜干涉图和天空盒加起来<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/PixPin_2024-06-12_12-25-59.gif" width="35%" alt=""/><br>
+
+            12 泡沫也是用薄膜干涉。但泡沫厚度要比球厚很多，所以把厚度映射到更厚的范围内。最后主观调色一下：我希望泡沫和球最亮的部分明度差不多，让爆炸的时候泡沫成为视觉中心。<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612175845.png" width="35%" alt=""/><br>
+
+            13 泡泡和泡沫叠加输出<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612180051.png" width="35%" alt=""/><br>
+        </div>
+    </section>
+
+    <section class="wrapper style1 align-left ">
+        <div class="inner">
+            <h2>借物表</h2>
+            <p>SDF 生成器: <a href="../pages/SDF_cn.html"> unity SDF 生成工具开发</a> <br>
+        </div>
+    </section>
+</div>
+</body>
+
+<script>
+    var video = document.getElementById("myVideo");
+    video.volume = 0.20; // 设置初始音量为50%
+</script>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>

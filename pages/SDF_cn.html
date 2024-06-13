@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SDF Tool</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="divided">
+    <section class="wrapper style1 align-center divided">
+        <div class="inner">
+            <div class="content-align-left align-left">
+                <a href="../index_cn.html">主页</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="amblyopiaGame.html">中文/English</a>
+            </div>
+            <!--            空一段距离-->
+            <h1>SDF 生成工具</h1>
+            <ul class="icons">
+                <li><a href="https://github.com/FengLvv/VATTest/" class="icon brands style2 fa-github"><span
+                        class="label">Github</span></a></li>
+                <li><a href="https://zhuanlan.zhihu.com/p/702637242" class="icon brands style2 fa-zhihu"><span
+                        class="label">Zhihu</span></a></li>
+            </ul>
+
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <video id="myVideo" style="width: 100%; height: auto;" controls="controls" preload="auto" volume="0.5">
+                <source src="../assets/works/SDFTool/SDFTool使用.mp4" type="video/mp4">
+            </video>
+
+            <br><br>
+
+            <section class="wrapper style1 align-left onscroll-content-fade-up onload-image-fade-in">
+                <h2>介绍</h2>
+                我将详细的制作过程记录在了我的知乎专栏中：<a href="https://zhuanlan.zhihu.com/p/702637242">Unity
+                SDF生成工具</a>
+                <br><br>
+                这是我在 Unity 中制作的一个 SDF 生成工具，用于生成 SDF 贴图和用于面部阴影、溶解、燃烧等效果的渐变贴图
+                <br>
+                这个工具通过 Compute Shader 调用 GPU 快速计算SDF图，并且用户可以调整参数控制生成的SDF图的渐变范围。
+                <br>
+                经过测试，该工具生成 180 张 SDF 消耗时间不超过1分钟，并且主要时间都消耗在由 RenderTexture 转换为 Texture2D
+                上。
+                <br>
+            </section>
+
+            <br><br>
+            <section class="wrapper style1 align-left onscroll-content-fade-up onload-image-fade-in">
+                <h2>使用案例</h2>
+                <ol>
+                    <li> <a href="blastBubble_cn.html" target="_blank">爆炸泡泡
+                    </a>
+                        <a class="image" href="blastBubble_cn.html" target="_blank">
+                            <img alt="" src="../assets/works/BlastBubble/poster.png" width="50%" height="50%"/>
+                        </a>
+                    </li>
+                </ol>
+            </section>
+
+        </div>
+    </section>
+</div>
+</body>
+
+<script>
+    var video = document.getElementById("myVideo");
+    video.volume = 0.20; // 设置初始音量为50%
+</script>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>
