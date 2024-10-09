@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Toon Sand</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="">
+    <section class="wrapper style1 align-center ">
+        <div class="inner">
+            <div class="content-align-left align-left">
+                <a href="../index.html">Home</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="./toon_sand_cn.html">中文/English</a>
+            </div>
+            <h1>Stylized desert scenes</h1>
+            <p>Cartoon shader for desert scenes<br>
+            </p>
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <video style="width: 100%; height: auto;" controls="controls" preload="auto"
+                   poster="/FengLvv.github.io/assets/works/Sand/Poster.png">
+                <source src="../assets/works/Sand/Dessert.mp4" type="video/mp4">
+            </video>
+            <br><br>
+            <div class="content-align-left align-left">
+                <h2>Feature overview</h2>
+                <div class="image" style="width: 100%">
+                    <img src="../assets/works/Sand/Features.png" alt="" style="width: 100%"/>
+                </div>
+                <br>
+                <br>
+                <br>
+
+                <h3>Implementation of POM sampling trail：</h3>
+                <p><br>After obtaining the tracks through AnyTrail, POM can be used to sample the tracks to simulate the footprint depth, which has better performance than tessellation
+                <br>1. If directly sample the track, the footprint will not align with the character's position, so I need to draw an extra distance forward
+                <br>2. To give the footprint depth, move the character's foot some distance underground and manually write the SV_Depth of the footprint part deeper in the fragment shader   </p>
+                <div class="image" style="width: 100%">
+                    <img src="../assets/works/Sand/trail.png" alt="" style="width: 100%"/>
+                </div>
+
+                <br>
+                <br>
+                <br>
+
+
+                <h2>Drawing process</h2>
+                <div class="image" style="width: 100%">
+                    <img src="../assets/works/Sand/process.gif" alt="" style="width: 100%"/>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="gallery style2 big lightbox onscroll-fade-in">
+            <article>
+                <a class="image" href="../assets/works/Sand/1.png">
+                    <img alt="" src="../assets/works/Sand/1.png"/>
+                </a>
+                <div class="caption">
+                    <p>Wave disturbance normals + LAMBERT</p>
+                </div>
+            </article>
+            <article>
+                <a class="image" href="../assets/works/Sand/2.png">
+                    <img alt="" src="../assets/works/Sand/2.png"/>
+                </a>
+                <div class="caption">
+                    <p>Base color</p>
+                </div>
+            </article>
+            <article>
+                <a class="image" href="../assets/works/Sand/3.png">
+                    <img alt="" src="../assets/works/Sand/3.png"/>
+                </a>
+                <div class="caption">
+                    <p>Ambient light</p>
+                </div>
+            </article>
+            <article>
+                <a class="image" href="../assets/works/Sand/4.png">
+                    <img alt="" src="../assets/works/Sand/4.png"/>
+                </a>
+                <div class="caption">
+                    <p>POM trail</p>
+                </div>
+            </article>
+            <article>
+                <a class="image" href="../assets/works/Sand/5.png">
+                    <img alt="" src="../assets/works/Sand/5.png"/>
+                </a>
+                <div class="caption">
+                    <p>Highlights</p>
+                </div>
+            </article>
+            <article>
+                <a class="image" href="../assets/works/Sand/6.png">
+                    <img alt="" src="../assets/works/Sand/6.png"/>
+                </a>
+                <div class="caption">
+                    <p>Edge light</p>
+                </div>
+            </article>
+            <article>
+                <a class="image" href="../assets/works/Sand/9.png">
+                    <img alt="" src="../assets/works/Sand/9.png"/>
+                </a>
+                <div class="caption">
+                    <p>Other objects</p>
+                </div>
+            </article>
+        </div>
+
+    </section>
+
+
+
+    <section class="wrapper style1 align-left ">
+        <div class="inner">
+            <h2>Reference list</h2>
+            <p> Cartoon water: <a href="toon_water.html">Toon Water</a></p>
+        </div>
+    </section>
+</div>
+
+</body>
+
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>

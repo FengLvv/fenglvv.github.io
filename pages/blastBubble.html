@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blast bubble</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="">
+    <section class="wrapper style1 align-center divided">
+        <div class="inner">
+            <div class="content-align-left align-left">
+                <a href="../index.html">Home</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="./blastBubble_cn.html">中文/English</a>
+            </div>
+            <!--            空一段距离-->
+            <h1>Exploding bubble</h1>
+            <p>HoudiniSimulate, make VAT with SDF, Unity render film interference<br></p>
+
+            <ul class="icons">
+                <li><a href="https://github.com/FengLvv/VATTest/tree/main" class="icon brands style2 fa-github"><span
+                        class="label">Zhihu</span></a></li>
+            </ul>
+
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <video id="myVideo" style="width: 100%; height: auto;" controls="controls" preload="auto" volume="1">
+                <source src="../assets/works/BlastBubble/bubble.mp4" type="video/mp4">
+            </video>
+            <br><br>
+
+
+        </div>
+    </section>
+
+
+    <section class="wrapper style1 align-left ">
+        <div class="inner">
+            <h2>Production idea</h2>
+
+            <p>
+            1 Create an exploding bubble effect in Houdini, split into bubbles and foam<br>&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240613165049.png" width="70%" alt=""/><br>
+
+            2 The foam portion is reduced to about 5000 using Remesh and Attrubute blur nodes and exported as VAT<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612172730.png" width="35%%" alt=""/><br>
+
+            3 Bake the bubble part using UV to create a mask map. Use the homemade SDF tool to generate SDF and gradient mask maps<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://picx.zhimg.com/70/v2-24220c1f120617fd3de5094cd69313fb_1440w.avis?source=172ae18b&biz_tag=Post" width="70%" alt=""/><br>
+
+            4 Write shader in Unity using gradient mask to make bubble burst animation, with VAT model to achieve the full effect<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/PixPin_2024-06-11_10-57-38.gif" width="35%%" alt=""/><br>
+
+            5 Draw a Flow map in Houdini to simulate bubble surface flow<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612100413.png" width="70%" alt=""/><br>
+
+            6 Unity uses Flowmap to perturb the normal map to create a surface flow effect<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612093450.png" width="35%%" alt=""/><br>
+
+            7 The water in the vacuole will flow from the top down, so the top is thin and the bottom is thick. Then superposition the maximum noise disturbance of the normal, plot the thickness as the X-axis of spectral sampling<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612174901.png" width="35%%" alt=""/><br>
+
+            8 The Angle is calculated using the normal and line of sight directions as the Y-axis of the spectral sampling<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612174956.png" width="35%%" alt=""/><br>
+
+            8 Spectrograms are sampled using thickness and Angle<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/PixPin_2024-06-12_09-59-16.gif" width="35%%" alt=""/><br>
+
+            9 Sample the sky box twice in opposite directions, using thickness mixing to simulate double-sided reflection<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612175402.png" width="35%" alt=""/><br>
+
+            10 Because the film interference is also obvious where the bubble is reflected, a brightness map is made with the result of the reflected sky box, and the film interference pattern is multiplied<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240613170455.png" width="35%" alt=""/><br>
+
+            11 Finally, the film interferogram and the sky box are added together<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/PixPin_2024-06-12_12-25-59.gif" width="35%" alt=""/><br>
+
+            12 Foam is also interfered with film. But the foam is much thicker than the ball, so map the thickness to a thicker range. Finally, a subjective color adjustment: I want the foam to be about the same brightness as the brightest part of the ball, so that the foam becomes the visual center when it explodes.<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612175845.png" width="35%" alt=""/><br>
+
+            13 Bubble and foam overlay output<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="https://raw.githubusercontent.com/FengLvv/picBase/main/20240612180051.png" width="35%" alt=""/><br>
+        </div>
+    </section>
+
+    <section class="wrapper style1 align-left ">
+        <div class="inner">
+            <h2>Reference list</h2>
+            <p>SDF builder: <a href="../pages/SDF_cn.html"> unity SDF generation tool development</a> <br>
+        </div>
+    </section>
+</div>
+</body>
+
+<script>
+    var video = document.getElementById("myVideo");
+    video.volume = 0.20; // 设置初始音量为50%
+</script>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>

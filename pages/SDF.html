@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SDF Tool</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="divided">
+    <section class="wrapper style1 align-center divided">
+        <div class="inner">
+            <div class="content-align-left align-left">
+                <a href="../index.html">Home</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="./SDF_cn.html">中文/English</a>
+            </div>
+            <!--            空一段距离-->
+            <h1>SDF Generating tool</h1>
+            <ul class="icons">
+                <li><a href="https://github.com/FengLvv/VATTest/" class="icon brands style2 fa-github"><span
+                        class="label">Github</span></a></li>
+                <li><a href="https://zhuanlan.zhihu.com/p/702637242" class="icon brands style2 fa-zhihu"><span
+                        class="label">Zhihu</span></a></li>
+            </ul>
+
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <video id="myVideo" style="width: 100%; height: auto;" controls="controls" preload="auto" volume="0.5">
+                <source src="../assets/works/SDFTool/SDFTool使用.mp4" type="video/mp4">
+            </video>
+
+            <br><br>
+
+            <section class="wrapper style1 align-left onscroll-content-fade-up onload-image-fade-in">
+                <h2>Introduce</h2>
+                <br><br>
+             This is an SDF generator I made in Unity to generate SDF maps and gradient maps for face shading, dissolve, burn, etc
+                <br>
+              This tool quickly computes SDF graphs by calling the GPU in Compute Shader, and users can adjust parameters to control the gradient range of the generated SDF graphs.
+                <br>
+      In testing, the tool took less than 1 minute to generate 180 SDFS, and most of the time was spent converting RenderTexture to Texture2D.
+                <br>
+            </section>
+
+            <br><br>
+            <section class="wrapper style1 align-left onscroll-content-fade-up onload-image-fade-in">
+                <h2>Use case</h2>
+                <ol>
+                    <li> <a href="blastBubble_cn.html" target="_blank">Exploding bubble
+                    </a>
+                        <a class="image" href="blastBubble_cn.html" target="_blank">
+                            <img alt="" src="../assets/works/BlastBubble/poster.png" width="50%" height="50%"/>
+                        </a>
+                    </li>
+                </ol>
+            </section>
+
+        </div>
+    </section>
+</div>
+</body>
+
+<script>
+    var video = document.getElementById("myVideo");
+    video.volume = 0.20; // 设置初始音量为50%
+</script>
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>

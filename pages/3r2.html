@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Fenglvv's Toon Shader</title>
     <meta charset="utf-8"/>
@@ -13,95 +12,99 @@
 <body class="is-preload">
 
 <div id="wrapper" class="divided">
-    <section class="wrapper style1 align-center divided">
+    <section class="wrapper style1 align-center ">
         <div class="inner">
             <div class="content-align-left align-left">
-                <a href="../index.html" >Homepage</a>
+                <a href="../index.html" >Home</a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="./3r2_cn.html" >中文/English</a>
-
+                <a href="./3r2_cn.html">中文/English</a>
             </div>
             <!--            空一段距离-->
             <h1>Fenglvv's Toon Shader</h1>
-            <p>Subjective rendering of Japanese style character. Model from <a
-                    href="https://www.aplaybox.com/details/model/i4Xo1E6NKg2v">Girl Frontier2 MMD.</a><br>
-                <a href="../assets/works/3R2_GROZA/GF.exe" download="3R2_Playground.exe">Click here to
-                    download
-                    playground (*^_^*)<br>[Press left mouse button to rotate, scroll the scroller to scale and move and
-                    press to move ]</a></p>
+            <p>Japanese Style Characters Rendering. Model from <a
+                    href="https://www.aplaybox.com/details/model/i4Xo1E6NKg2v">Girls Frontier2 MMD.</a><br>
             <ul class="icons">
                 <li><a href="https://github.com/FengLvv/Fenglvv-Toon-Shader" class="icon brands style2 fa-github"><span
                         class="label">Twitter</span></a></li>
             </ul>
             <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
             <video style="width: 100%; height: auto;" controls="controls" preload="auto"
-                   poster="/FengLvv.github.io/assets/works/3R2_GROZA/Video_pic.jpg">
+                   poster="/FengLvv.github.io/assets/works/3R2_GROZA/1.png">
                 <source src="../assets/works/3R2_GROZA/Groza_Compressed.mp4" type="video/mp4">
             </video>
             <br><br>
 
             <section class="wrapper style1 align-left">
                 <h2>Introduction</h2>
-                This shader showcases part of the process for rendering Japanese cartoon characters.<br> The shader is
-                based on Unity URP and utilizes URP RenderFeature to achieve certain effects. I modified some parts of
-                the model, mainly the normals, to improve the shading effect.
+                This shader shows part of the process of rendering a Japanese cartoon character<br>
+                The shader is based on Unity URP and utilizes URP RenderFeature to customize the rendering pipeline.
                 <br> <br>
-
             </section>
         </div>
 
 
-        <section
-                class="spotlight style4 orient-left content-align-left image-position-center onscroll-content-fade-up onload-image-fade-in"
-                id="first">
-            <div class="content">
-                <h2>Feature in shader</h2>
-                <ul>
-                    <li>NPR + GGX highlights + Disney Diffusion</li>
-                    <li>Normal extrusion outline, Monospaced inline</li>
-                    <li>Screen space dynamic fringe</li>
-                    <li>eyebrows piercing through hair</li>
-                    <li>SDF facial shadow</li>
-                    <li>Kajiya anisotropic highlights</li>
-                </ul>
-            </div>
-            <div class="image" style="width: 100%">
-                <img src="../assets/works/3R2_GROZA/Intro1.png" alt=""/>
-            </div>
-        </section>
-
-
-
-
         <div class="inner">
             <section class="wrapper style1 align-left">
-                <h2>Other details</h2>
+                <h2>Shader features</h2>
                 <ul>
-                    <li><b>Normal remapping</b> for optimizing hair lighting<br><br>
+                    <li>Outer stroke: use script to smooth normals and transform to tangent space, record to vertex color rgb, use alpha to control stroke thickness
+                        <br>Inside stroke: The screen space compares the model depth to the surrounding depth, and exceeds the threshold to draw an outside stroke
+                        <br>Basic coloring: Lambert + GGX highlights + ambient CubeMap + dark overlay gradient mapping
+                        <br>
                         <span class="image fit">
-                            <img src="../assets/works/3R2_GROZA/normal_remap.png" alt=""/><br><br>
+                            <img src="../assets/works/3R2_GROZA/overview1.png" alt=""/><br>
                         </span>
                     </li>
-                    <li>Use <b>FlowMap</b> to reconstruct Tangent for drawing Kajiya highlights.<br><br>
+                    <li>SDF Face Shadow: Calculate the step value using the Angle between the character's forward direction and the light, dividing the SDF map into shaded and unshaded areas
+                        <br>Eyebrows through the hair: Write the hair and face into the template, with the eyebrows drawn at the end, above the face and hair
+                        <br>Screen Space Fringe Shadow: Write the face to the template, offset the hair along the direction of the light, and draw the shadow color on the template area
+                        <br>
                         <span class="image fit">
-                            <img src="../assets/works/3R2_GROZA/Kajiya.png" alt=""/><br><br>
+                            <img src="../assets/works/3R2_GROZA/overview2.png" alt=""/><br>
+                        </span>
+                    </li>
+                    <li>Use the Vertex Color alpha channel to control the outer stroke thickness and trim the character's hair and face strokes<br>
+                        <span class="image fit">
+                            <img src="../assets/works/3R2_GROZA/hail_vertCol.png" alt=""/><br>
+                        </span>
+                    </li>
+                    <li><b>Normals remap </b> to optimize the highlight shape
+                        <br>The hair normal is mapped to a near-spherical shape to avoid the split between bright and dark bangs and get a smooth distribution of light and dark hair
+                        <br>
+                        <span class="image fit">
+                            <img src="../assets/works/3R2_GROZA/normal_remap.png" alt=""/><br>
+                        </span>
+                    </li>
+                    <li>Draw a Flow Map for the hair along the direction of the highlight flow, convert it to the Tangent space and store it in the map <br>
+Drawing Double-layer highlights using the kajiya-kay method <br>
+                        <span class="image fit">
+                            <img src="../assets/works/3R2_GROZA/flow_map.png" alt=""/><br>
                         </span>
                     </li>
 
+                    <li>Use the parallax mapping to draw the eyeball so that it appears to have depth <br>
+                        <span class="image fit">
+                            <img src="../assets/works/3R2_GROZA/parallax.png" alt=""/><br>
+                        </span>
+                    </li>
+
+                    <li> Use a shadow camera in the same direction as Directional Light to separately record the depth of a specific tag object, and compare the depth of the shadow camera in shader to achieve high-precision character self-projection <br>
+                        <span class="image fit">
+                            <img src="../assets/works/3R2_GROZA/Single_Shadow.png" alt=""/><br>
+                        </span>
+                    </li>
                 </ul>
-                <h2>Lousy job~</h2>
-                <video style="width: 100%; height: auto;" controls="controls" preload="auto">
-                    <source src="../assets/works/3R2_GROZA/NG_Compressed.mp4" type="video/mp4">
-                </video>
 
             </section>
+        </div>
+    </section>
 
-            <br> <br>
-            <br> <br>
-            <a href="../assets/works/3R2_GROZA/GF.exe" download="3R2_Playground.exe">Don't forget! Click here to
-                download
-                playground (*^_^*)<br>[Press left mouse button to rotate, scroll the scroller to scale and
-                press to move ]</a>
+
+
+    <section class="wrapper style1 align-left ">
+        <div class="inner">
+            <h2> Refence list </h2>
+<p>Unity tool development: <a href="... /pages/smoothNormal_cn.html"> Normal Smoothing tool </a> <br>
         </div>
     </section>
 </div>
@@ -118,14 +121,5 @@
 <script src="../assets/js/breakpoints.min.js"></script>
 <script src="../assets/js/util.js"></script>
 <script src="../assets/js/main.js"></script>
-<script>
-    function goToHomePage() {
-        window.location.href = "../index.html"; // 替换成你的主页地址
-    }
-</script>
-<script>
-    function goToEngCh() {
-        window.location.href = "./3r2_cn.html"; // 替换成你的主页地址
-    }
-</script>
+
 </html>
