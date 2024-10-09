@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OpenGL</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="">
+    <!-- Other practice -->
+    <section class="wrapper style1 align-center">
+        <div class="inner">
+            <div class="content-align-left align-left">
+                <a href="../index.html">Home</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="./stars_cn.html">中文/English</a>
+            </div>
+            <h1>VFX Graph Exercise - Autumn and the Stars</h1>
+            <p>表面流体模拟、VFX graph<br></p>
+            <section>
+                <video style="width: 100%; height: auto;" controls="controls" preload="auto">
+                    <source src="../assets/works/Stars/DEMO.mp4" type="video/mp4">
+                </video>
+            </section>
+        </div>
+    </section>
+    <section class="wrapper style1 align-left ">
+        <div class="inner align-left">
+            <h2>summarize</h2>
+            <p><br>通After obtaining the fluid velocity RT through AnyTrail, pass in the VFX graph and let the particles
+                move towards the fluid velocity <br><br>
+                Maple leaf implementation method: Generate maple leaf in the air → turbulence, gravity, drag → Generate
+                new maple leaf in place after landing -> Follow the fluid movement
+                <br><img src="../assets/works/Stars/morning.png" width="70%" alt=""/><br><br>
+                Star river implementation method：Meteors in the sky → gravity, trailing → ripples in place after landing
+                (wrap screen color) and slowly falling meteors;
+                Meteors over the water are driven by fluid.
+                <img src="../assets/works/Stars/night.png" width="70%" alt=""/></p>
+
+        </div>
+    </section>
+</div>
+<section class="wrapper style1 align-left ">
+    <div class="inner">
+        <h2>Reference list</h2>
+        <p> Surface interaction: <a href="./anytrail.html">AnyTrail</a></p>
+    </div>
+</section>
+</body>
+
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>

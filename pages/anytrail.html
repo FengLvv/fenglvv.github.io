@@ -11,20 +11,20 @@
 </head>
 <body class="is-preload">
 
+
 <div id="wrapper" class="divided">
     <section class="wrapper style1 align-center divided">
         <div class="inner">
             <div class="content-align-left align-left">
-                <a href="../index.html" >Homepage</a>
+                <a href="../index.html" >Home</a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="anytrail_cn.html" >中文/English</a>
+                <a href="./anytrail.html" >中文/English</a>
             </div>
             <!--            空一段距离-->
             <h1>Any Trail</h1>
-            <p>Create any shape of trail under player and generate RT<br>
-                <a href="../assets/works/Any_trail/AnyTrail.exe" download="AnyTrail_Playground.exe">Click here to
-                    download
-                    playground (*^_^*)<br>[WSAD to move, space to draw, 1234 to open/close brushes ]</a></p>
+         <p> Creates any track under the player's feet and generates RT<br>
+                <a href="../assets/works/Any_trail/AnyTrail.exe" download="AnyTrail_Playground.exe">Click to download Playground
+                    (*^_^*)<br>[WSAD moves, Spaces paint tracks, 1234 switches different brushes]</a></p>
             <ul class="icons">
                 <li><a href="https://github.com/FengLvv/AnyTrail" class="icon brands style2 fa-github"><span
                         class="label">Github</span></a></li>
@@ -36,64 +36,79 @@
             <br><br>
 
             <section class="wrapper style1 align-left onscroll-content-fade-up onload-image-fade-in">
-                <h2>Introduction</h2>
-                This plugin can generate a canvas under the character's feet that <b>moves with the character</b>, pass
-                the character's
-                movement information to the canvas, and draw the trajectory as <b>RT</b>.<br>
-                All pattern drawing is done in the <b>Computer Shader</b>, no additional camera is needed, and the RT
-                resources are <b>dynamically allocated</b> with respect to required effect<br>
-                RT can be passed into the terrain and other objects as a <b>mask in the shading stage.</b>
-                <br> <br>
-                <h2>Function</h2>
-                Four types of trajectories are supported, but the system can be expanded to support any procedural
-                graphics: <br>
-
-                <ul>
-                    <li> <b>2D fluid:</b> Jacobi iteration method to solve the Navier-Stokes equations, can be used for
-                        interaction with
-                        the sea
-                    </li>
-                    <li> <b>Surface Ripple:</b> Wave equation, can be used for interaction with players on shallow water
-                        surface
-                    </li>
-                    <li> <b>Trajectory:</b> Continuous drawing of circles, can be used to draw continuous tracks on sand or
-                        snow
-                    </li>
-                    <li><b> Pattern:</b> Draw any pattern, control random quantity and position. Used for drawing footprints of
-                        any
-                        shape or particle effects affecting the terrain
-                    </li>
+               <h2> Introduction </h2>
+<ul>
+<li> AnyTrail allows characters to plot tracks on the RT beneath their feet and calculate fluids and ripples </li>
+<li> Currently supports fluids/tracks/ripples/patterns (can be expanded) </li>
+<li> All functions are done in Compute shader </li>
+<li> Drawing results can be used to render tracks/effects </li>
                 </ul>
 
-                <h2>Construction</h2>
+                <br><br>
+               <h2> Details </h2>
+Currently, four types of tracks are supported, but the system extends its support to drawing any programmed image (such as branches, fractals, noise, etc.) through reasonable data structures.
+
+<ul>
+<li> <b>2D fluids :</b> Using Euler method to solve 2D NS equations, texture pixels as fluid elements, can be used to draw interactive liquid/gas effects </li>
+<li> <b> Surface ripples :</b> approximates the wave equation and can be used to simulate player interaction with shallow water surfaces </li>
+<li> <b> Trajectory :</b> Continuous circle drawing, can be used to draw continuous trajectory (used in sand, snow, etc.) </li>
+<li><b> Pattern :</b> Draws a pattern of any shape, controlling random number and position to create a particle effect. Used to draw footprints of any shape to influence ground coloring</li>
+                    <div class="image" style="width: 100%">
+                        <img src="../assets/works/Any_trail/patterns.png" alt="" style="width: 100%"/>
+                    </div>
+
+                </ul>
+
+                <br><br>
+               <h2> Plug-in structure </h2>
+The <p> plugin consists of three main parts: brush script (bound to the character to send painting instructions), canvas (receive painting instructions and process them to send to the calculator), and calculator (draw RT according to received instructions) <br>
+In addition, the canvas also determines the relative position of the character and the canvas in real time to move the canvas position, ensuring that the canvas is always under the character's feet.
+                </p>
                 <div class="image" style="width: 100%">
                     <img src="../assets/works/Any_trail/Flow.png" alt="" style="width: 100%"/>
                 </div>
 
                 <br><br>
+              <h2> Usage </h2>
+<p> Add Any Trail Canvas component to the object followed by the canvas, speed up the Fluid/Trail/Pattern/Wave Writer component in the brush object, and you're ready to paint
+                </p>
+                <div class="image" style="width: 100%">
+                    <video style="width: 100%; height: auto;" controls="controls" preload="auto">
+                        <source src="../assets/works/Any_trail/use-1.mp4" type="video/mp4">
+                    </video>
+                    </li>
+                </div>
 
-                <h2>Use case</h2>
+                <br><br>
+         <h2> Use cases </h2>
                 <ol>
-                    <li> <a href="../pages/toon_water.html" target="_blank">Toon water: &nbsp Shallow water surface
-                        interaction</a>
-                        <a class="image" href="../pages/toon_water.html" target="_blank">
+                    <li> <a href="../pages/toon_water_cn.html" target="_blank">Cartoon water: &nbsp Shallow water interaction<br>
+                    </a>
+                        <a class="image" href="../pages/toon_water_cn.html" target="_blank">
                             <img alt="" src="../assets/works/Water/Thumbnail.png" width="50%" height="50%"/>
                         </a>
                     </li>
+                    <li><a href="stars_cn.html" target="_blank">Autumn and the stars: &nbsp The VFX graph interacts with the fluid<br>
+                    </a>
+                        <a class="image" href="stars_cn.html" target="_blank">
+                            <img alt="" src="../assets/works/Stars/poster.png" width="50%"/>
+                        </a>
+                    </li>
+                    <li><a href="../pages/toon_sand_cn.html" target="_blank">Stylized desert: Use POM sampling tracks to create a sandpit effect<br>
+                        <a class="image" href="../pages/toon_sand_cn.html" target="_blank">
+                            <img alt="" src="../assets/works/Sand/Poster.png" width="50%"/>
+                        </a>
+                    </a>
                 </ol>
 
                 <br> <br>
                 <br> <br>
             </section>
-
-
-            <a href="../assets/works/Any_trail/AnyTrail.exe" download="AnyTrail_Playground.exe">Don't forget! Click here
-                to
-                download
-                playground (*^_^*)<br>[WSAD to move, space to draw, 1234 to open/close brushes ]</a>
         </div>
     </section>
 </div>
+</body>
+
 </body>
 
 

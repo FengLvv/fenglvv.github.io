@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Death stranding scan</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="">
+    <section class="wrapper style1 align-center ">
+        <div class="inner">
+            <div class="content-align-left align-left">
+                <a href="../index.html">Home</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="./deathStrandingScan_cn.html">中文/English</a>
+            </div>
+            <h1>Duplicate death stranding scan effect</h1>
+           <p> Post-processing scanning, post-processing stroke, asynchronous collision detection, instantiation rendering <br></p>
+
+            <ul class="icons">
+                <li><a href="https://zhuanlan.zhihu.com/p/697271173" class="icon brands style2 fa-zhihu"><span
+                        class="label">知乎</span></a></li>
+                <li><a href="https://github.com/FengLvv/Death-stranding-scan"
+                       class="icon brands style2 fa-github"><span
+                        class="label">github</span></a></li>
+            </ul>
+            <!-- 填满屏幕宽度，高度跟随变化,不自动播放，显示播放按钮，preload-->
+            <video style="width: 100%; height: auto;" controls="controls" preload="auto"
+                   poster="/FengLvv.github.io/assets/works/DeathStranding/Poster.png">
+                <source src="../assets/works/DeathStranding/death%20stranding%20scan%20effect.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <section class="wrapper style1 align-left ">
+        <div class="inner">
+            <h2>Production idea</h2>
+
+            <p>
+                <b>Scanning effect：</b><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; 1 World coordinates are reconstructed using depth maps, and distance maps are calculated using scene world coordinates and scan start coordinates<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/depth.png" width="70%" alt=""/><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp; 2 Service SDF + frac + smoothStep Make scan lines and scan ranges<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/scan.png" width="70%" alt=""/><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp; 3 Scanning range * Scanning line to Get the scan line in the range, &nbsp; use DOTWEEN with c# to make scan animation<br>
+            </p>
+
+
+            <p>
+                <b>outline：</b><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; 1 Depth map + Sobel kernel to draw stroke<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/outline_ori.png" width="70%" alt=""/><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp; 2 Use a depth map as a stroke mask to reduce the intensity of distant strokes<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/outline.png" width="70%" alt=""/><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp; 3 Control stroke display with scan range<br>
+            </p>
+
+            <p>
+                <b>Ground indicator：</b><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; 1 Array ray detection is used to query the mark position and normal line, and the mark type is distinguished by the normal line<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/mark_data.png" width="70%" alt=""/><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp; 2 The Async method is used to apportionate collisions detected in multiple frames, consuming from 15.07ms per frame to 0.17ms per frame<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/performance.png" width="70%" alt=""/><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp; 3 The ground marks are drawn in batches using the GPU Instance method, and the vertex shader redraws the face pieces as Billboard<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/marks.png" width="70%" alt=""/><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp; 4 Manually writes the depth in frag shader to solving the problem of shading the mark and the ground<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/frag_depth.png" width="70%" alt=""/><br>
+            </p>
+
+            <p>
+                <b>Particle：</b><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; 1 Particle instances are created when the tag is generated and automatically destroyed after play<br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="../assets/works/DeathStranding/particle.png" width="70%" alt=""/><br>
+            </p>
+
+            <p>
+                <b>Final effect：</b><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; <img src="../assets/works/DeathStranding/final_effect.png" width="70%" alt=""/><br>
+            </p>
+        </div>
+    </section>
+
+    <section class="wrapper style1 align-left ">
+        <div class="inner">
+            <h2>Statement of borrowing</h2>
+            <p>Environmental assets: <a href="https://assetstore.unity.com/packages/3d/environments/landscapes/real-landscapes-valley-forest-194338"> real landscapes - valley forest
+                (From unity asset store)</a> <br>
+        </div>
+    </section>
+</div>
+
+</body>
+
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</html>
